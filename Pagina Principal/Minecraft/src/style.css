@@ -1,0 +1,40 @@
+.footer {
+  background-color: #727272;
+  color: #ffffff;
+  padding: 2%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header {
+  background-color: #5eaa47;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.imagen {
+  width: 50px;
+  height: 50px;
+}
+
+.body {
+  background-position: center; /* Centrar la imagen en la página */
+  height: 100vh; /* Asegura que cubra toda la altura de la ventana */
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  color: white; /* Para que el texto sea legible sobre el fondo */
+}
+:root {
+  background-image: url("/minecraft.png"); /* Ruta de la imagen */
+  background-size: cover; /* Escala la imagen para cubrir todo el fondo */
+  background-repeat: no-repeat; /* No repetir la imagen */
+}
+
+.icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
