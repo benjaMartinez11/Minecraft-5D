@@ -11,7 +11,14 @@ function App() {
     <>
       <div>
         <header className="header">
-          <p>Minecraft</p>
+          <img src="/objetos/Minecraft-Logo.png" alt="" className="header-image" />
+          <nav>
+            <ul>
+              <li><a href="">Inicio</a></li>
+              <li><a href="">Nosotros</a></li>
+              <li><a href="">Contacto</a></li>
+            </ul>
+          </nav>
         </header>
         <main className="body">
           <div>
@@ -52,6 +59,42 @@ function App() {
           </div>
           <div>
             <h2>Dimensiones</h2>
+            <table border="1" style={{ width: "100%", textAlign: "center" }}>
+              <thead></thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <img src="/objetos/tiirr.png" alt="" className="imagen" />
+                  </td>
+                  <td>
+                    <img src="/objetos/espada.png" alt="" className="imagen" />
+                  </td>
+                  <td>
+                    <img src="/objetos/manzana.png" alt="" className="imagen" />
+                  </td>
+                  <td>
+                    <img src="/objetos/hierro.png" alt="" className="imagen" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <img src="/objetos/objet.png" alt="" className="imagen" />
+                  </td>
+                  <td>
+                    <img src="/objetos/objet.png" alt="" className="imagen" />
+                  </td>
+                  <td>
+                    <img src="/objetos/objet.png" alt="" className="imagen" />
+                  </td>
+                  <td>
+                    <img src="/objetos/objet.png" alt="" className="imagen" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        <div>
+            <h2>Comida</h2>
             <table border="1" style={{ width: "100%", textAlign: "center" }}>
               <thead></thead>
               <tbody>
