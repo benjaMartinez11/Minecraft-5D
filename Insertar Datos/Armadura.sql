@@ -1,4 +1,4 @@
-INSERT INTO Armadura(Nombre_armadura, de_que_esta_hecho, durabilidad, defensa)
+INSERT INTO Armadura(Nombre_armadura, de_que_esta_hecho, durabilidad, defensa, durabilidad_unidad)
  VALUES
 ("Casco de cuero","5 de cuero", 55, 0.5,'68%'),("Pechera de cuero","8 de cuero", 80, 1.5,'61%'),
 ("Pantalon de cuero","7 de cuero", 75, 1.0),("Botas de cuero","4 de cuero", 65, 0.5),
