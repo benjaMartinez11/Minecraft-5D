@@ -1,0 +1,9 @@
+1-Armadura
+2-Bioma
+3-herramientas basicas
+4-jefes
+5-jugador
+6-Dimension
+7-Jefe_dimension
+8-Cubos
+9-
