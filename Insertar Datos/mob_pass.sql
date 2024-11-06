@@ -1,14 +1,3 @@
-CREATE TABLE mob_pass( 
-  ID INT PRIMARY KEY AUTO_INCREMENT,
-  nombre_pass VARCHAR(50) NOT NULL,
-  loot VARCHAR(50) NOT NULL,
-  loot_exp BOOLEAN NOT NULL,
-  vida DECIMAL,
-  movilidad VARCHAR(50) NOT NULL,
-  reproduccion BOOLEAN NOT NULL
-)
-
-
 INSERT INTO mobs_pass (Nombre_pass, loot, loot_exp, vida, movilidad, reproduccion)
     VALUES ("vaca", "carne", TRUE,10, "caminar", TRUE),
     ("cerdo", "jamon",TRUE, 10, "caminar", TRUE),
