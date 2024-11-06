@@ -1,0 +1,23 @@
+Orden de agregar las tablas:
+
+1-Agricultua
+2-Bioma
+3-Cubos
+4-Mob_hostil
+5-Mob_neutro
+6-Mob_pass
+7-Dimension
+8-Encantamientos
+9-Estructura
+10-Mobs
+11-Jefes
+12-Caracteristicas_jefe
+13-Jefe_dimension
+14-Armadura
+15-Jugador
+16-Comida
+17-Herramientas_basicas
+18-Herramientas
+19-Item
+20-zombie-salvador
+21-Mob_Dimension
