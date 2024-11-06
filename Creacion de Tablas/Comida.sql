@@ -4,7 +4,5 @@ CREATE TABLE Comida(
   efecto VARCHAR(50) NOT NULL,
   recuperar_hambre DECIMAL NOT NULL,
   recuperar_vida DECIMAL NOT NULL,
-  receta VARCHAR(50) NOT NULL,
-  items_ID INT,
-  FOREIGN KEY (items_ID) REFERENCES items(ID)
+  receta VARCHAR(50) NOT NULL
 );

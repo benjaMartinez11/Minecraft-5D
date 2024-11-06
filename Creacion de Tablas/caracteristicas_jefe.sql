@@ -7,5 +7,5 @@ CREATE TABLE Caracteristicas_jefe (
     daño_mele BOOLEAN,
     daño_del_ataque DECIMAL,
     jefes_ID INT,
-    FOREIGN KEY (jefes_ID) REFERENCES Jefe(ID)
+    FOREIGN KEY (jefes_ID) REFERENCES Jefes(ID)
 );
