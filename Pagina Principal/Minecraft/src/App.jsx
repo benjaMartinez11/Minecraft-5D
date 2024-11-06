@@ -22,6 +22,9 @@ function App() {
         </header>
         <main className="body">
           <div>
+            <h1>a</h1>
+          </div>
+          <div>
             <h2>Items</h2>
             <table border="1" style={{ width: "100%", textAlign: "center" }}>
               <thead></thead>
@@ -132,7 +135,7 @@ function App() {
         </main>
 
         <footer className="footer">
-          <p>creado x medio curso</p>
+          <p>Creado x medio curso</p>
           <div className="icons">
             <a href="https://www.youtube.com/">
               <FaYoutube size={30} />
