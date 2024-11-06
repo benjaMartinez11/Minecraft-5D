@@ -21,5 +21,5 @@ VALUES ('Zombi', 'Hostil', 3, 'Terrestre', False, True, False, , 'Cuerpo a cuerp
 ('Slime', 'Hostil', 3, 'Terrestre', False, True, False, 'Cuerpo a cuerpo', , False, 16),
 ('Cubo de magma', 'Hostil', 4, 'Terrestre', False, True, False, 'Cuerpo a cuerpo', , 16),
 ('Piglin' , 'Hostil', 5, 'Terrestre', False, True, False, 'Cuerpo a cuerpo', ,20),
-('Ocelote', 'Pasivo', 0, 'Terrestre', True, False, False, 'Cuerpo a cuerpo', , 10)
-;
+('Ocelote', 'Pasivo', 0, 'Terrestre', True, False, False, 'Cuerpo a cuerpo', , 10),
+('Esqueleto del Wither', 'Hostil', 8, 'Terrestre', False, True, False, 'Cuerpo a cuerpo', False, 20);
