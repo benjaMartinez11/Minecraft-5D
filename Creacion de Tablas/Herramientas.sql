@@ -3,6 +3,8 @@ CREATE TABLE Herramientas (
     nombre_herramienta VARCHAR(50), 
     como_se_hace VARCHAR(50),     
     crafteo VARBINARY(MAX),      
-    FOREIGN KEY (ID) REFERENCES Cubos(ID),  
-    FOREIGN KEY (ID) REFERENCES Herramientas_basicas(ID) 
+    cubos_ID INT,
+    herramientas_basicas_ID INT,
+    FOREIGN KEY (cubos_ID) REFERENCES Cubos(ID),  
+    FOREIGN KEY (herramientas_basicas_ID) REFERENCES Herramientas_basicas(ID) 
 );

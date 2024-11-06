@@ -1,5 +1,5 @@
-CREATE TABLE biomas (
-    bioma_id INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE Bioma (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
     nombre_bioma VARCHAR(255) NOT NULL,
     tipo_bioma ENUM('terrestre', 'acuático', 'subterráneo') NOT NULL,
     geografia ENUM('plano', 'montañoso', 'valle') NOT NULL, 
