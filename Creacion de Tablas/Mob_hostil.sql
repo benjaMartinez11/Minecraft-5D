@@ -6,5 +6,5 @@ CREATE TABLE Mob_hostil(
   movilidad VARCHAR(50) NOT NULL,
   ataque INT NOT NULL,
   vida DECIMAL,
-  disctancia_de_ataque VARCHAR(50) NOT NULL
+  distancia_de_ataque VARCHAR(50) NOT NULL
 )
