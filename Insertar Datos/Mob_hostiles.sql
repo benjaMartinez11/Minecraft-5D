@@ -9,4 +9,5 @@ VALUES
   ("Blaze", "Polvo de Blaze, varita de Blaze", true, 5, 10.0, "Aéreo", "Distancia"),
   ("Ghast", "Piedra luminosa, pólvora", true, 6, 5.0, "Aéreo", "Distancia"),
   ("Zombie Pigman", "Oro, carne", true, 7, 10.0, "Terrestre", "Corto"),
-  ("Guardian", "Esencia de Guardian, prismarina", true, 6, 15.0, "Acuático", "Corto");
+  ("Guardian", "Esencia de Guardian, prismarina", true, 6, 15.0, "Acuático", "Corto"),
+  ("Esqueleto del Wither", "Cabeza de Wither", true, 8, 20.0, "Terrestre", "Corto");
