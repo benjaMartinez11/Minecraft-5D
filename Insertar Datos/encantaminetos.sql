@@ -5,4 +5,4 @@ INSERT INTO encantamientos (nombre_encantamiento)
     ("poder"),("empalamiento"),("conductividad"),("perforacion"),("multidisparo"),
     ("carga rapida"),("retroceso"),("fuego"),("infinidad"),("lealtad"),("respiracion"),
     ("afinidad acuatica"),("agilidad acuatica"),("paso helado"),("propulcion"),
-    ("eficiencia"),("botin"),("toque"),("fortuna"),("señuelo"),
+    ("eficiencia"),("botin"),("toque"),("fortuna"),("señuelo");
