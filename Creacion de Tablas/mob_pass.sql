@@ -1,0 +1,9 @@
+CREATE TABLE Mob_pass( 
+  ID INT PRIMARY KEY AUTO_INCREMENT,
+  nombre_pass VARCHAR(50) NOT NULL,
+  loot VARCHAR(50) NOT NULL,
+  loot_exp BOOLEAN NOT NULL,
+  vida DECIMAL,
+  reproduccion BOOLEAN NOT NULL,
+  movilidad VARCHAR(50) NOT NULL
+);
