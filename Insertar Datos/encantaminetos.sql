@@ -1,8 +1,8 @@
 INSERT INTO encantamientos (nombre_encantamiento)
-    VALUES ("Proteccion"),("Proteccion contra el fuego"),("proteccion contra explociones"),
-    ("proteccion contra proyectiles"),("caida de pluma"),("irrompibilidad"),
-    ("reparacion"),("espinas"),("filo"),("castigo"),("maldicion"),("empuje"),("aspecto"),
-    ("poder"),("empalamiento"),("conductividad"),("perforacion"),("multidisparo"),
-    ("carga rapida"),("retroceso"),("fuego"),("infinidad"),("lealtad"),("respiracion"),
-    ("afinidad acuatica"),("agilidad acuatica"),("paso helado"),("propulcion"),
-    ("eficiencia"),("botin"),("toque"),("fortuna"),("señuelo");
+    VALUES ("Proteccion"),("Proteccion contra el fuego"),("Proteccion contra explociones"),
+    ("Proteccion contra proyectiles"),("Caida de pluma"),("Irrompibilidad"),
+    ("Reparacion"),("Espinas"),("Filo"),("Castigo"),("Maldicion"),("Empuje"),("Aspecto"),
+    ("Poder"),("Empalamiento"),("Conductividad"),("Perforacion"),("Multidisparo"),
+    ("Carga rapida"),("Retroceso"),("Fuego"),("Infinidad"),("Lealtad"),("Respiracion"),
+    ("Afinidad acuatica"),("Agilidad acuatica"),("Paso helado"),("Propulcion"),
+    ("Eficiencia"),("Botin"),("Toque de seda"),("Fortuna"),("Señuelo");
