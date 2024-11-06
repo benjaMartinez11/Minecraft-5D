@@ -1,4 +1,4 @@
-INSERT INTO Azada(Nombre_pico, de_que_esta_hecho, durabilidad, ataque)
+INSERT INTO Herramientas_basicas (nombre_herramienta, de_que_esta_hecho, durabilidad, ataque)
  VALUES
  ("Azada de madera", "2 de madera y dos palos de madera", 59, 0.5),
  ("Azada de piedra", "2 de piedra y dos palos de madera", 131, 0.5),
@@ -22,7 +22,7 @@ INSERT INTO Azada(Nombre_pico, de_que_esta_hecho, durabilidad, ataque)
  ("Hacha de piedra", "3 de piedra y dos palos de madera", 131, 2.5),
  ("Hacha de oro", "3 de oro y dos palos de madera", 32, 2.0),
  ("Hacha de hierro", "3 de hierro y dos palos de madera", 250, 3.0),
- ("Hacha de diamante", "3 de diamante y dos palos de madera", 1561, 3.5);
+ ("Hacha de diamante", "3 de diamante y dos palos de madera", 1561, 3.5),
 
  ("Espada de madera", "2 de madera y dos palos de madera", 32, 2.5),
  ("Espada de piedra", "2 de piedra y dos palos de madera", 64, 3.5),
