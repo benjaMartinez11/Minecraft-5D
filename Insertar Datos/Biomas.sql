@@ -1,4 +1,4 @@
-INSERT INTO biomas (nombre_bioma, generan_mobs_pas, generan_mobs_hos)
+INSERT INTO biomas (nombre_bioma, generar_mobs_pass, generar_mobs_hoss)
 VALUES ("Bosque","true", "true","Este bioma se caracteriza por ser abundante en árboles, con colinas ocasionales y con hierba alta bastante habitual. Los árboles que crecen aquí son robles y abedules de madera blanca. Los champiñónes y las flores también pueden encontrarse de forma usual. En cuanto a fauna, en el bosque se pueden encontrar gallinas, cerdos, vacas, y, ocasionalmente, lobos. A veces, el bosque se genera como a un bioma técnico dentro del bioma de las llanuras."),
 
 ("Llanuras florido","true", "true", "Este bioma es relativamente plano, con colinas bajas redondeadas y con gran abundancia de hierba alta (más que en cualquier otro bioma), pero carece de árboles. Los pequeños barrancos, los lagos y las Aldea NPC son comunes en este bioma. Aquí pastan cerdos, vacas, ovejas y gallinas de forma habitual.
