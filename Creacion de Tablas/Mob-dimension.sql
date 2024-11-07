@@ -1,5 +1,5 @@
 CREATE TABLE Mob_dimension (
-    ID INT PRIMARY KEY,
+    ID INT PRIMARY KEY AUTO_INCREMENT,
     mob_id INT,
     dimension_id INT,
     FOREIGN KEY (mob_id) REFERENCES Mob(ID),
