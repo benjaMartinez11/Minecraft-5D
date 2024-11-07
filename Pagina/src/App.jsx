@@ -1,18 +1,24 @@
-// App.js o App.jsx
-import React from 'react';
-import Footer from './Componentes/footer'; // Ajusta la ruta si está en una subcarpeta
-import Body from './Componentes/body';
-import Header from './Componentes/header';
-import "./App.css"
+import React, { useState, useEffect } from "react";
+import "./index.css";
+import axios from "axios";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import ArticuloList from "./Componentes/ArticuloList";
+import Articulo from "./Componentes/Articulo";
 
 function App() {
   return (
-    <div className="App">   
-      <Header></Header>
-      <Body></Body> 
+    <Router>
+      <div className="App">
+        <header>
+          <h1>Minecraft Wiki</h1>
+        </header>
 
-      <Footer />
-    </div>
+        <Switch>
+          <Route path="/" exact component={ArticuloList} />
+          <Route path="/articulo/:id" component={Articulo} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
