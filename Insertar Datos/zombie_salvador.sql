@@ -22,5 +22,5 @@ INSERT INTO Mob_dimension (mob_id, dimension_id)
     (19, 1),
     (20, 1),
     (21, 2),
-    (22,2),
-    (23,1);
+    (22, 2),
+    (23, 1);
