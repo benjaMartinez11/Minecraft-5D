@@ -1,25 +1,45 @@
-INSERT INTO mobs(nombre_mob, tipo_mob, daño_mob, movilidad, animal, mounstro, humano, distancia_ataque, interaccion_id, reproduccion, vida_mob);
-VALUES ('Zombi', 'Hostil', 3, 'Terrestre', False, True, False, , 'Cuerpo a cuerpo', , False, 20),
-('Esqueleto', 'Hostil', 3, 'Terrestre', False, True, False, , 'A distancia', , False, 20),
-('Creeper', 'Hostil', 42, 'Terrestre', False, True, False, ,'Cuerpo a cuerpo', , False, 20),
-('Araña', 'Neutral', 2, 'Terrestre', False, True, False, ,'Cuerpo a cuerpo', , False, 16),
-('Enderman', 'Neutral', 6, 'Terrestre', False, True, False, 'Cuerpo a cuerpo', , False, 40),
-('Cerdo', 'Pasivo', 0, 'Terrestre', True, False, False, Null, 'Golpear', , True, 10),
-('Oveja', 'Pasivo', 0, 'Terrestre', True, False, False, Null, 'Golpear', , True, 8),
-('Vaca', 'Pasivo', 0, 'Terrestre', True, False, False, Null, 'Golpear', , True, 10),
-('Pollo', 'Pasivo', 0, 'Terrestre', True, False, False, Null, 'Golpear', , True, 4),
-('Caballo', 'Pasivo', 0, 'Terrestre', True, False, False, Null, 'Golpear',, True, 24),
-('Ghast', 'Hostil', 12, 'Volador', False, True, False, 'A distancia', , False, 10),
-('Conejo', 'Pasivo', 0, 'Terrestre', True, False, False, Null, Null, , True, 3),
-('Lobo', 'Neutral', , 'Terrestre', True, False, False, 'Cuerpo a cuerpo', , True, 20),
-('Blaze', 'Hostil', 5, 'Volador', False, True, False, 'A distancia', , False, 20),
-('Aldeano', 'Pasivo', 0, 'Terrestre', False, False, True, Null, , True, 20),
-('Golem de hierro', 'Hostil', 7, 'Terrestre', False, True, False, 'Cuerpo a cuerpo', , False, 100),
-('Golem de nieve', 'Hostil', 0, 'Terrestre', False, True,False, 'A distancia', , False, 4),
-('Bruja', 'Hostil', 6, 'Terrestre', False,False, True, 'A distancia', , False, 26),
-('Lepisma', 'Hostil', 1, 'Terrestre', True, False, False, 'Cuerpo a cuerpo', , False,8),
-('Slime', 'Hostil', 3, 'Terrestre', False, True, False, 'Cuerpo a cuerpo', , False, 16),
-('Cubo de magma', 'Hostil', 4, 'Terrestre', False, True, False, 'Cuerpo a cuerpo', , 16),
-('Piglin' , 'Hostil', 5, 'Terrestre', False, True, False, 'Cuerpo a cuerpo', ,20),
-('Ocelote', 'Pasivo', 0, 'Terrestre', True, False, False, 'Cuerpo a cuerpo', , 10),
-('Esqueleto del Wither', 'Hostil', 8, 'Terrestre', False, True, False, 'Cuerpo a cuerpo', False, 20);
+--mob hostil insert
+INSERT INTO Mobs (mob_hostil_id, dimension_id)
+
+VALUES (1, 1),
+(2, 1),
+(2, 2),
+(3, 1),
+(4, 1),
+(4, 2),
+(4, 3),
+(5, 1),
+(6, 2),
+(7, 2),
+(8, 2),
+(9, 2),
+(10, 2),
+(11, 2);
+
+--mob pass insert
+INSERT INTO Mobs (mob_pass_id, dimension_id)
+
+VALUES 
+(1, 1),
+(2, 1),
+(3, 2),
+(4, 1),
+(5, 1),
+(6, 1),
+(7, 1),
+(8, 1),
+(9, 1),
+(10, 1),
+(11, 1),
+(12, 1);
+
+--mob neutro insert
+INSERT INTO Mobs (mob_neutro_id, dimension_id)
+
+VALUES 
+(1, 1),
+(1, 2),
+(1, 3),
+(2, 1),
+(3, 2),
+(4, 1);

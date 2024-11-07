@@ -1,4 +1,4 @@
-INSERT INTO jefe_dimension (jefes_ID, dimension_ID) 
+INSERT INTO Jefe_dimension (jefes_ID, dimension_ID) 
 VALUES 
     (1, 3),
     (2, 1),

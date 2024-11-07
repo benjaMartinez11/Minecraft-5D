@@ -1,4 +1,4 @@
-CREATE TABLE mobs (
+CREATE TABLE Mobs (
   ID INT PRIMARY KEY AUTO_INCREMENT,
   mob_neutro_ID INT,
   mob_pass_ID INT,

@@ -1,41 +1,17 @@
-INSERT INTO biomas (nombre_bioma, generar_mobs_pass, generar_mobs_hoss)
-VALUES ("Bosque","true", "true","Este bioma se caracteriza por ser abundante en árboles, con colinas ocasionales y con hierba alta bastante habitual. Los árboles que crecen aquí son robles y abedules de madera blanca. Los champiñónes y las flores también pueden encontrarse de forma usual. En cuanto a fauna, en el bosque se pueden encontrar gallinas, cerdos, vacas, y, ocasionalmente, lobos. A veces, el bosque se genera como a un bioma técnico dentro del bioma de las llanuras."),
-
-("Llanuras florido","true", "true", "Este bioma es relativamente plano, con colinas bajas redondeadas y con gran abundancia de hierba alta (más que en cualquier otro bioma), pero carece de árboles. Los pequeños barrancos, los lagos y las Aldea NPC son comunes en este bioma. Aquí pastan cerdos, vacas, ovejas y gallinas de forma habitual.
-En la 1.7 se le han añadido variantes como la Llanura de Girasoles. Es un Bioma Templado."),
-
-("Desierto","true", "true","Un estéril bioma que consiste mayoritariamente en arena, grandes dunas, arbustos secos y cactus, al igual que un desierto real. En este bioma nunca llueve, y en él apenas hay vegetación. A orillas de los pequeños lagos de este bioma pueden verse cañas de azúcar. Está demostrado que en este bioma, los mobs hostiles, como los zombies y esqueletos, aparecen con más frecuencia, pero son fáciles de ver gracias al color claro de la arena. Las pirámides y los charcos de desierto son exclusivos de este bioma. A veces se generan Aldea NPC en el desierto, pero son bastante poco frecuentes. En el desierto se encuentran pocos animales o ninguno dada la ausencia de hierba.
-En la 1.6 el desierto se volvió más árido y seco y los lagos y charcos son ahora muy raros de encontrar"),
-("Pantano","true", "true","Un bioma bastante plano caracterizado por lagos poco profundos con Nenúfares flotantes y abundante arcilla, arena y barro en el fondo. Muchas veces los árboles se encuentran cubiertos de lianas, y algunos crecen desde dentro del agua. Las setas también son muy abundantes en este bioma, repartiéndose a lo largo y lo ancho de los pantanos. El color de las hojas, el agua, la hierba y del bioma en general es más oscuro que en otros biomas. Los nenúfares suponen un obstáculo para la navegación por lagos, ya que si el bote colisiona con uno se rompe automáticamente. En la versión Beta 1.8, este bioma era mucho más claro y abrupto.
-En la 1.7 se volvió muy oscuro con más lagos y colinas lo que le dio más realismo. También es el único bioma en el que se pueden encontrar las Orquídeas azules."),
-
-("Jungla","true", "true", "Un frondoso bioma que consiste en bosques de árboles selváticos que pueden superar 31 bloques de altura y 2 bloques de diámetro. Algunas veces se encuentran limitando con el bioma del desierto. El paisaje es verde y muy irregular, con pequeños lagos abundantes. Una vez dentro de la jungla, se puede notar que el cielo se vuelve más claro. Es el único bioma en el que se encuentran helechos y árboles de jungla. El suelo se encuentra casi totalmente cubierto por frondosos arbustos, y en los árboles hay gran número de lianas por las que se puede trepar. Las cuevas son comunes en este bioma, y en ellas suele haber más lianas. Las Plantas de Cacao y los Templos de Jungla son exclusivos de este bioma. También pueden encontrarse ocelotes.
-Hasta la 1.6 era el bioma más fácil de encontrar. El 75% de mundos generados aparecían en la jungla. Pero ahora tan solo un 4% aparece.
-
-En la 1.7 se le agregaron especies de "fronteras" a la jungla, estas se caracterizan porque tienen pocos arboles y son pequeños, también se encuentra sandía o melón."),
-
-("Tundra","true", "true", "Se trata de un llano, extenso y frío bioma cubierto de nieve en su totalidad. La lluvia no cae en este bioma, sino que es reemplazada por las precipitaciones de nieve. Los lagos y ríos están congelados, y los árboles son escasos. Cuenta con varias colinas de pequeña elevación, que en ocasiones pueden llegar a ser bastante escarpadas. Curiosamente, en el borde de los lagos y ríos de la tundra pueden encontrarse algunas plantas de caña de azúcar, aunque habitualmente se desprenden al romperse el hielo.
-En la 1.7 se agrego el bioma de Ice Spikes (Picos de hielo), ademas de cambiaron los arboles de roble por abetos."),
-("Taiga","true", "true", "Taiga	Este bioma se asemeja a la tundra, pero es mucho más boscoso, con abundantes coníferas. Al igual que la tundra, la taiga se encuentra cubierta por nieve, aunque cuenta con algunas zonas de hierba de color azulado. Las colinas son habituales y de bastante altura, más escarpadas que en otros biomas. En la taiga se pueden encontrar más lobos que en ningún otro bioma.
-Desde la Alpha hasta la 1.4 este bioma era un bosque de coníferas templado y sin nieve, pero luego el agua se congelo y la nieve lo cubrió, aunque esta variante regresó en la 1.7."),
-
-("Montañas","true", "true", "Un montañoso bioma con altos y escarpados precipicios cubiertos por hierba de color azulado y escasos árboles. En este bioma se pueden encontrar barrancos, valles, cascadas, picos, desfiladeros, simas y muchas otras estructuras de gran altura, permitiendo amplias vistas. En este bioma se encuentran más sistemas de cuevas subterráneos que en cualquier otro bioma. Hay que ir con cuidado al desplazarse por este bioma, pues cuenta con muchos precipicios por los que puedes caer. Las montañas son el único bioma en el que se puede encontrar vetas de Esmeralda.
-En la versión 1.7 las montañas cambiaron bastante, se cambiaron los arboles de roble por abetos, ahora se generan con mas piedra que hierba, alcanza alturas de hasta 170 bloques y en las zonas elevadas hay presencia de nieve, lo que lo hace más realista."),
-
-("Océano","true", "true", "Es un bioma extremadamente plano, extenso y abierto compuesto totalmente por agua, pero con relieve marino que se compone de pequeñas colinas y montañas que suelen contener barro, arena y arcilla en el fondo marino. No existe un límite para la extensión de los océanos: aunque normalmente miden 25.000 bloques de largo, se han visto océanos que miden más de 100.000 bloques de longitud. En los océanos pueden encontrarse islas diminutas con o sin árboles, cuevas bajo el nivel del mar, entradas a abismos submarinos e incluso Mina abandonada que se suelen inundar debido a la proximidad del océano.
-A partir de la 1.7 los océanos disminuyeron bastante su tamaño y es complicado encontrar alguno grande. También el fondo de los Deep Ocean (Océano profundo)se cambio la arena, tierra y arcilla por pura grava."),
-
-("Mesa","true", "true" "La Mesa es un bioma raro hecho de arcilla endurecida, arcilla de distintos colores y arbustos secos -parecido al desierto-. Aquí, la arena normal no se generará; en su lugar aparece la arena roja, con una pequeña probabilidad de generarse un cactus en ella. Este bioma es útil si vamos escasos de arcilla. Sin embargo, puede resultar un bioma difícil de encontrar debido a su escasez."),
-
-("Río","true", "true", "Un bioma que consiste en bloques de agua dispuestos en varias filas que cambian de dirección semejando el curso de un río. Los ríos atraviesan el terreno y muchas veces separan biomas distintos. Suelen desembocar en el bioma del océano, pero a veces no son más que un circuito de agua cerrado. Los ríos también se caracterizan por no tener corriente. También son una fuente importante de arcilla. Aunque es un bioma técnico, el código del juego se refiere a él como a un bioma normal."),
-
-("Río Congelado","true", "true", "Se trata de una variante del río normal que sólo aparece en los biomas de la tundra y la taiga. Se caracterizan por su superficie, que se encuentra congelada."),
-("Playa","true", "true", "Se genera en la orilla de cualquier bioma que limite con cualquier masa de agua, y se encuentra compuesta siempre por arena. Las playas penetran ligeramente en los biomas, sustituyendo los bloques habituales de cada uno por bloques de arena. En las capas más hondas de las playas puede encontrarse arenisca."),
-
-("Océano Congelado","true", "true", "Este bioma técnico sólo se encuentra en los biomas de la tundra y la taiga. Consiste en que la superficie del océano se encuentra cubierta por hielo."),
-
-("Precipicio de Montaña","true", "true", "Sirve de límite entre montañas y también entre biomas."),
-("Colinas","true", "true", "Las colinas se generan en los biomas de bosque, desierto, taiga, tundra y jungla. Cada área separada por una colina genera otra más en los alrededores de la zona. Las colinas de bosque parecen más bajas que las de otros biomas, y suelen ser más inusuales. Las colinas que se encuentran en el bioma de la taiga son las más altas y las más escarpadas, por lo que se les considera a veces como montañas."),
-
-("Isla de Setas","true", "false", "Se trata del bioma más extraño y raro, y consiste en un terreno irregular formado por Micelio en lugar de hierba, pero su elemento más característico son las Seta gigante que crecen en él. Las Islas de Setas suelen aparecer en medio del mar, lejos de otras orillas. Es el único bioma donde aparecen las champiñacas, que pacen libremente por este bioma. A parte de esta especie, no existe ningún otro Mob, y esto se aplica igual a las cuevas y minas, aunque los Spawn Mob seguirán siendo efectivos. Aunque los árboles técnicamente no pueden crecer sobre Micelio, se pueden plantar siempre y cuando crezcan en terrenos de tierra alejados de este tipo de bloque.
-Este bioma se volvió mucho mas complicado de hallar en la versión 1.7 ya que la mayoría de las veces aparece en medio de los océanos y como decíamos anteriormente, es difícil encontrar un océano grande.");
+INSERT INTO Bioma (nombre_bioma)
+VALUES 
+    ("Bosque"),
+    ("Desierto"),
+    ("Llanuras"),
+    ("Pantano"),
+    ("Jungla"),
+    ("Tundra"),
+    ("Taiga"),
+    ("Montañas"),
+    ("Océano"),
+    ("Isla de Setas"),
+    ("Mesa"),
+    ("Playa"),
+    ("Colinas"),
+    ("Hell"),
+    ("Sky");

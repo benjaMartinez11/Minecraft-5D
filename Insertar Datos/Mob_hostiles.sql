@@ -1,4 +1,4 @@
-INSERT INTO mob_hostil(Nombre_hostil, loot, loot_exp, ataque, vida, movilidad, disctancia_de_ataque)
+INSERT INTO Mob_hostil(Nombre_hostil, loot, loot_exp, ataque, vida, movilidad, distancia_de_ataque)
 VALUES
   ("Zombi", "Carne, cuero", true, 3, 10.0, "Terrestre", "Corto"),
   ("Esqueleto", "Arco, flechas", true, 4, 10.0, "Terrestre", "Distancia"),

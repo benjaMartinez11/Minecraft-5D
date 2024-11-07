@@ -1,6 +1,5 @@
-INSERT INTO jefes (nombre_jefe, salud, movilidad, puede_ser_invocado,
-  , requisitos_invocacion, loot
-) VALUES
+INSERT INTO jefes (nombre_jefe, salud, movilidad, puede_ser_invocado,requisitos_invocacion, loot)
+ VALUES
 (
     "Ender Dragon", 200, "volar", TRUE, "Cristales de Ender", 
     "Huevo de Dragón"

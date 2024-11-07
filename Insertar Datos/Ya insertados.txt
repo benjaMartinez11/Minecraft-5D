@@ -1,9 +1,10 @@
-1-Armadura
-2-Bioma
-3-herramientas basicas
-4-jefes
-5-jugador
-6-Dimension
-7-Jefe_dimension
-8-Cubos
-9-
+1-MOB_HOSTIL
+2-MOB_PASS
+3-MOB_NEUTRO
+4-BIOMA
+5-MOBS
+6-JUGADORES
+7-JEFES
+8-JEFES_DIMENSION
+9-CARACTERISTICAS_JEFES
+10-
