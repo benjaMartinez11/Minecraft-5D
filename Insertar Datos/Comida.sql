@@ -1,4 +1,4 @@
-INSERT INTO jugadores (nombre_comida, efecto, recuperar_hambre, recuperar_vida, receta)
+INSERT INTO Comida (nombre_comida, efecto, recuperar_hambre, recuperar_vida, receta)
     VALUES 
     ("Ojo de araña", "veneno", 0.0, 0.0, ""),
     ("Pez globo", "veneno, hambre", 2.0, 1.0, ""),
