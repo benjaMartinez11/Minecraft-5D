@@ -1,6 +1,5 @@
 CREATE TABLE Item (
     ID INT PRIMARY KEY AUTO_INCREMENT,
-    nombre_item VARCHAR(255) NOT NULL,
     herramientas_ID INT,
     armadura_ID INT,
     agricultura_ID INT,
