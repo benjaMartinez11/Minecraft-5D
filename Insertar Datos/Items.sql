@@ -1,9 +1,60 @@
-INSERT INTO items (nombres_item, categoria_dimension)
-    VALUES ("pasto","mundo"), ("tierra","mundo"), ("tronco","mundo"), ("madera","mundo"),
-    ("piedra","mundo"),("munndo","mundo"), ("puerta de madera","mundo"), ("valla de madera","mundo"), ("puerta de valla","mundo"), 
-    ("agua","mundo"), ("tierraFertil","mundo"), ("tierraDeSemillas","mundo"), ("tierraDeZanahorias","mundo"), 
-    ("tierraDePapas","mundo"), ("bambu","mundo"), ("hojas","mundo"), ("sandía","mundo"),
-    ("trigo","mundo"), ("escalera","mundo"), ("antorcha","mundo"), ("lana","mundo"),
-    ("carneDeVaca","mundo"), ("carnaDeOveja","mundo"), ("pollo","mundo"), ("cueroDeVaca","mundo"),
-    ("calabaza","mundo"), ("tarta","mundo")
+--cubos insert
+INSERT INTO items (cubos_ID)
+    VALUES 
+    (1),
+    (2),
+    (3),
+    (4);
 
+--herramientas basicas insert
+INSERT INTO items (herramientas_basicas_ID)
+    VALUES 
+    (1),
+    (2),
+    (3),
+    (4),
+    (5),
+    (6),
+    (7),
+    (8),
+    (9),
+    (10),
+    (11),
+    (12),
+    (13),
+    (14),
+    (15),
+    (16),
+    (17),
+    (18),
+    (19),
+    (20),
+    (21),
+    (22),
+    (23),
+    (24),
+    (25);
+
+--agricultura insert
+INSERT INTO items (agricultura_ID)
+    VALUES 
+    (1),
+    (2),
+    (3),
+    (4)
+    (5)
+    (6);
+
+--aramdura insert
+INSERT INTO items (herramientas_basicas_ID)
+    VALUES 
+    (1),
+    (2),
+    (3),
+    (4),
+    (5),
+    (6),
+    (7),
+    (8),
+    (9),
+    (10);
