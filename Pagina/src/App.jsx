@@ -7,7 +7,25 @@ import Footer from "./Componentes/Footer";
 function App() {
 
   //const [count, setCount] = useState(0)
-
+const MinecraftPage = () => {
+  const [data, setData] = useState({
+    jugador: [],
+    herramientas_basicas: [],
+    armadura: [],
+    encantamientos: [],
+    comida: [],
+    mob_pass: [],
+    mob_neutro: [],
+    mob_hoss: [],
+    jefes: [],
+    caracteristicas_jefe: [],
+    bioma: [],
+    estructura: [],
+    dimension: [],
+    agricultura: [],
+    cubos: [],
+  });
+  
   useEffect(() => {
     fetch("http://127.0.0.1:5000/jugador")
       .then((data) => data.json())
