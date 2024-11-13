@@ -8,6 +8,54 @@ function App() {
 
   //const [count, setCount] = useState(0)
 
+  useEffect(() => {
+    fetch("http://127.0.0.1:5000/jugador")
+      .then((data) => data.json())
+      .then((response) => setPartidos1(response));
+    fetch("http://127.0.0.1:5000/herramientas_basicas")
+      .then((data) => data.json())
+      .then((response) => setPartidos2(response));
+    fetch("http://127.0.0.1:5000/armadura")
+      .then((data) => data.json())
+      .then((response) => setPartidos2(response));
+    fetch("http://127.0.0.1:5000/encantamientos")
+      .then((data) => data.json())
+      .then((response) => setPartidos2(response));
+    fetch("http://127.0.0.1:5000/comida")
+      .then((data) => data.json())
+      .then((response) => setPuntos1(response));
+    fetch("http://127.0.0.1:5000/mob_pass")
+      .then((data) => data.json())
+      .then((response) => setPuntos2(response));
+    fetch("http://127.0.0.1:5000/mob_neutro")
+      .then((data) => data.json())
+      .then((response) => setPuntos2(response));
+    fetch("http://127.0.0.1:5000/mob_hoss")
+      .then((data) => data.json())
+      .then((response) => setPuntos2(response));
+    fetch("http://127.0.0.1:5000/jefes")
+      .then((data) => data.json())
+      .then((response) => setPuntos(response));
+    fetch("http://127.0.0.1:5000/caracteristicas_jefe")
+      .then((data) => data.json())
+      .then((response) => setPartidos2(response));
+    fetch("http://127.0.0.1:5000/bioma")
+      .then((data) => data.json())
+      .then((response) => setPuntos(response));
+    fetch("http://127.0.0.1:5000/estructura")
+      .then((data) => data.json())
+      .then((response) => setPartidos2(response));
+    fetch("http://127.0.0.1:5000/agricultura")
+      .then((data) => data.json())
+      .then((response) => setPuntos(response));
+    fetch("http://127.0.0.1:5000/dimension")
+      .then((data) => data.json())
+      .then((response) => setPuntos(response));
+    fetch("http://127.0.0.1:5000/cubos")
+      .then((data) => data.json())
+      .then((response) => setPartidos2(response));
+  }, []);
+
   return (
     <>
       <div>
