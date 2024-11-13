@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./index.css";
+import { Link } from "react-router-dom";
 
-function App() {
-
+const App = () => {
   //const [count, setCount] = useState(0)
-const MinecraftPage = () => {
   const [data, setData] = useState({
     jugador: [],
     herramientas_basicas: [],
@@ -22,68 +21,71 @@ const MinecraftPage = () => {
     agricultura: [],
     cubos: [],
   });
-  
+
   useEffect(() => {
     fetch("http://127.0.0.1:5000/jugador")
       .then((data) => data.json())
-      .then((response) => setPartidos1(response));
+      .then((response) => setJugador(response));
     fetch("http://127.0.0.1:5000/herramientas_basicas")
       .then((data) => data.json())
-      .then((response) => setPartidos2(response));
+      .then((response) => setHerramientas(response));
     fetch("http://127.0.0.1:5000/armadura")
       .then((data) => data.json())
-      .then((response) => setPartidos2(response));
+      .then((response) => setArmadura(response));
     fetch("http://127.0.0.1:5000/encantamientos")
       .then((data) => data.json())
-      .then((response) => setPartidos2(response));
+      .then((response) => setEncantamientos(response));
     fetch("http://127.0.0.1:5000/comida")
       .then((data) => data.json())
-      .then((response) => setPuntos1(response));
+      .then((response) => setComida(response));
     fetch("http://127.0.0.1:5000/mob_pass")
       .then((data) => data.json())
-      .then((response) => setPuntos2(response));
+      .then((response) => setMob_pass(response));
     fetch("http://127.0.0.1:5000/mob_neutro")
       .then((data) => data.json())
-      .then((response) => setPuntos2(response));
+      .then((response) => setMob_neutro(response));
     fetch("http://127.0.0.1:5000/mob_hoss")
       .then((data) => data.json())
-      .then((response) => setPuntos2(response));
+      .then((response) => setMob_hoss(response));
     fetch("http://127.0.0.1:5000/jefes")
       .then((data) => data.json())
-      .then((response) => setPuntos(response));
+      .then((response) => setJefes(response));
     fetch("http://127.0.0.1:5000/caracteristicas_jefe")
       .then((data) => data.json())
-      .then((response) => setPartidos2(response));
+      .then((response) => setCaracteristicas_jefe(response));
     fetch("http://127.0.0.1:5000/bioma")
       .then((data) => data.json())
-      .then((response) => setPuntos(response));
+      .then((response) => setBioma(response));
     fetch("http://127.0.0.1:5000/estructura")
       .then((data) => data.json())
-      .then((response) => setPartidos2(response));
+      .then((response) => setEstructura(response));
     fetch("http://127.0.0.1:5000/agricultura")
       .then((data) => data.json())
-      .then((response) => setPuntos(response));
+      .then((response) => setAgricultura(response));
     fetch("http://127.0.0.1:5000/dimension")
       .then((data) => data.json())
-      .then((response) => setPuntos(response));
+      .then((response) => setDimension(response));
     fetch("http://127.0.0.1:5000/cubos")
       .then((data) => data.json())
-      .then((response) => setPartidos2(response));
+      .then((response) => setCubos(response));
   }, []);
 
   const renderTable = (title, items) => (
-    <div className="table-section">
+    <div className="table-section" id={title}>
       <h2>{title}</h2>
       <table>
         <thead>
           <tr>
-            {items.length > 0 && Object.keys(items[0]).map((key) => <th key={key}>{key}</th>)}
+            {items.length > 0 &&
+              Object.keys(items[0]).map((key) => <th key={key}>{key}</th>)}
           </tr>
         </thead>
         <tbody>
           {items.map((item, index) => (
             <tr key={index}>
-              {Object.values(item).map((value, idx) => <td key={idx}>{value}</td>)}
+              {Object.values(item).map((value, idx) => (
+                <td key={idx}>{value}</td>
+              ))}
             </tr>
           ))}
         </tbody>
@@ -91,54 +93,119 @@ const MinecraftPage = () => {
     </div>
   );
 
-
   return (
     <>
-      <div>
-        <header className="header">
-          <p>Minecraft</p>
-        </header>
-        <main className="body">
-          <div>
-            <h2>Jugador</h2>
-            <table border="1" style={{width: '100', textAlign: 'center' }}>
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>Skin</th>
-                  <th>Salud</th>
-                  <th>Ataque</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Steve</td>
-                  <td><img src="/Componentes/Objetos/steve.png" alt="" /></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>    
-        </main>
+      <header className="header">
+        <p>Minecraft</p>
+        <nav className="navbar">
+          <ul>
+            <li>
+              <Link to="jugador" smooth={true} duration={500}>
+                Jugador
+              </Link>
+            </li>
+            <li>
+              <Link to="herramientas_basicas" smooth={true} duration={500}>
+                Herramientas Básicas
+              </Link>
+            </li>
+            <li>
+              <Link to="armadura" smooth={true} duration={500}>
+                Armadura
+              </Link>
+            </li>
+            <li>
+              <Link to="encantamientos" smooth={true} duration={500}>
+                Encantamientos
+              </Link>
+            </li>
+            <li>
+              <Link to="comida" smooth={true} duration={500}>
+                Comida
+              </Link>
+            </li>
+            <li>
+              <Link to="mob_pass" smooth={true} duration={500}>
+                Mobs Pasivos
+              </Link>
+            </li>
+            <li>
+              <Link to="mob_neutro" smooth={true} duration={500}>
+                Mobs Neutros
+              </Link>
+            </li>
+            <li>
+              <Link to="mob_hoss" smooth={true} duration={500}>
+                Mobs Hostiles
+              </Link>
+            </li>
+            <li>
+              <Link to="jefes" smooth={true} duration={500}>
+                Jefes
+              </Link>
+            </li>
+            <li>
+              <Link to="caracteristicas_jefe" smooth={true} duration={500}>
+                Características Jefe
+              </Link>
+            </li>
+            <li>
+              <Link to="bioma" smooth={true} duration={500}>
+                Biomas
+              </Link>
+            </li>
+            <li>
+              <Link to="estructura" smooth={true} duration={500}>
+                Estructuras
+              </Link>
+            </li>
+            <li>
+              <Link to="dimension" smooth={true} duration={500}>
+                Dimensiones
+              </Link>
+            </li>
+            <li>
+              <Link to="agricultura" smooth={true} duration={500}>
+                Agricultura
+              </Link>
+            </li>
+            <li>
+              <Link to="cubos" smooth={true} duration={500}>
+                Cubos
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </header>
 
-        <footer className="footer">
-          <p>Creado por X</p>
-          <div className="icons">
-            <a href=""></a>
-            <a href=""></a>
-            <a href=""></a>
-          </div>
-        </footer>
-      </div>
+      <main className="body">
+        {renderTable("jugador", data.jugador)}
+        {renderTable("herramientas_basicas", data.herramientas_basicas)}
+        {renderTable("armadura", data.armadura)}
+        {renderTable("encantamientos", data.encantamientos)}
+        {renderTable("comida", data.comida)}
+        {renderTable("mob_pass", data.mob_pass)}
+        {renderTable("mob_neutro", data.mob_neutro)}
+        {renderTable("mob_hoss", data.mob_hoss)}
+        {renderTable("jefes", data.jefes)}
+        {renderTable("caracteristicas_jefe", data.caracteristicas_jefe)}
+        {renderTable("bioma", data.bioma)}
+        {renderTable("estructura", data.estructura)}
+        {renderTable("dimension", data.dimension)}
+        {renderTable("agricultura", data.agricultura)}
+        {renderTable("cubos", data.cubos)}
+      </main>
+
+      <footer className="footer">
+        <p>Creado por X</p>
+        <div className="icons">
+          <a href=""></a>
+          <a href=""></a>
+          <a href=""></a>
+        </div>
+      </footer>
     </>
   );
-}
+};
 
 export default App;

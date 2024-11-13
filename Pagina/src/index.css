@@ -1,73 +1,135 @@
-/* minecraftPage.css */
-
-body {
-  font-family: 'Arial', sans-serif;
+.body {
+  font-family: "Arial", sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  background-image: url("/path/to/minecraft-background.jpg"); /* Ruta de la imagen de fondo */
+  background-size: cover;
+  background-position: center;
+  color: white;
 }
 
-.minecraft-page {
-  background-image: url('https://your-image-url.com/minecraft-background.jpg'); /* Cambia esta URL por la URL de tu imagen de Minecraft */
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  padding: 20px;
-  color: #ffffff;
-  text-shadow: 1px 1px 2px #000;
+.navbar {
+  background-color: rgba(0, 0, 0, 0.6); /* Fondo negro translúcido */
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar ul {
+  list-style-type: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 8px 16px;
+  display: inline-block;
+}
+
+.navbar a:hover {
+  background-color: #575757;
+  border-radius: 4px;
 }
 
 .table-section {
-  background-color: rgba(34, 34, 34, 0.8); /* Fondo semitransparente para las tablas */
-  border-radius: 8px;
-  margin-bottom: 20px;
-  padding: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-  overflow-x: auto;
-}
-
-.table-section h2 {
-  font-size: 24px;
-  color: #ffdd57; /* Color dorado para los títulos */
-  margin-bottom: 10px;
-  text-align: center;
+  margin-top: 60px; /* Espacio para evitar que el navbar tape las tablas */
+  padding: 20px;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Fondo translúcido para las secciones de tabla */
+  border-radius: 10px;
+  margin-bottom: 30px;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;
-}
-
-th, td {
-  padding: 10px;
-  text-align: left;
-  color: #ddd;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-th {
-  background-color: #444;
-  font-weight: bold;
-  font-size: 16px;
-  color: #ffdd57;
-}
-
-td {
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-table tr:hover {
+  margin-bottom: 30px;
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-@media screen and (max-width: 768px) {
-  .table-section h2 {
-    font-size: 20px;
+th,
+td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+td img {
+  max-width: 50px;
+  height: auto;
+}
+
+.header {
+  padding: 20px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 999;
+  color: white;
+}
+
+.header p {
+  font-size: 2rem;
+  margin: 0;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+footer p {
+  margin: 0;
+}
+
+.icons a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.icons a:hover {
+  color: #ccc;
+}
+
+@media (max-width: 768px) {
+  .navbar ul li {
+    display: block;
+    margin: 10px 0;
   }
-  
-  th, td {
+
+  .table-section {
+    margin-top: 100px;
+  }
+
+  table {
     font-size: 14px;
-    padding: 8px;
   }
 }
