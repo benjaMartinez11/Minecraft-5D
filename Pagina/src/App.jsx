@@ -74,6 +74,27 @@ const MinecraftPage = () => {
       .then((response) => setPartidos2(response));
   }, []);
 
+  const renderTable = (title, items) => (
+    <div className="table-section">
+      <h2>{title}</h2>
+      <table>
+        <thead>
+          <tr>
+            {items.length > 0 && Object.keys(items[0]).map((key) => <th key={key}>{key}</th>)}
+          </tr>
+        </thead>
+        <tbody>
+          {items.map((item, index) => (
+            <tr key={index}>
+              {Object.values(item).map((value, idx) => <td key={idx}>{value}</td>)}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+
+
   return (
     <>
       <div>
