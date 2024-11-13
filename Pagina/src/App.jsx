@@ -16,20 +16,20 @@ function App() {
         </header>
         <main className="body">
           <div>
-            <h2>Items</h2>
+            <h2>Jugador</h2>
             <table border="1" style={{width: '100', textAlign: 'center' }}>
               <thead>
                 <tr>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
+                  <th>Nombre</th>
+                  <th>Skin</th>
+                  <th>Salud</th>
+                  <th>Ataque</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td></td>
-                  <td></td>
+                  <td>Steve</td>
+                  <td><img src="/Componentes/Objetos/steve.png" alt="" /></td>
                   <td></td>
                   <td></td>
                 </tr>
