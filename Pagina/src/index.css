@@ -29,3 +29,49 @@
   flex-direction: column;
   align-items: center;
 }
+
+.minecraft-container {
+  font-family: "Press Start 2P", cursive; /* Fuente tipo pixelada */
+  color: #2c3e50;
+  background-color: #f3ca20;
+  text-align: center;
+  padding: 20px;
+}
+
+.minecraft-navbar button {
+  background-color: #8b4513;
+  border: 2px solid #d2691e;
+  color: #f3ca20;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.minecraft-navbar button.active {
+  background-color: #d2691e;
+}
+
+.minecraft-navbar button:hover {
+  background-color: #8b3a3a;
+}
+
+.minecraft-table-schedule {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.minecraft-table-schedule th,
+.minecraft-table-schedule td {
+  border: 2px solid #2f4f4f;
+  padding: 10px;
+  text-align: center;
+}
+
+.minecraft-search-bar {
+  font-size: 1.2rem;
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #2c3e50;
+}
