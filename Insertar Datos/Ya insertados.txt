@@ -8,3 +8,15 @@
 8-JEFES_DIMENSION
 9-CARACTERISTICAS_JEFES
 10-
+
+insertado x benja martinez:
+
+-Agriculura
+-Armacura
+-BIOMAS
+-Comida
+-Cubos
+-Dimension
+-Estructura
+-Herramientas
+-
