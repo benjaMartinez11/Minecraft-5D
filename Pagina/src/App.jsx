@@ -1,8 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./index.css";
-import Header from "./Componentes/Header";
-import Navbar from "./Componentes/Navbar";
-import Footer from "./Componentes/Footer";
 
 function App() {
 
