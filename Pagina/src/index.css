@@ -1,77 +1,73 @@
-.footer {
-  background-color: #727272;
-  color: #ffffff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* minecraftPage.css */
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.header {
-  background-color: #5eaa47;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.imagen {
-  width: 50px;
-  height: 50px;
-}
-
-.body {
-  background-image: url();
+.minecraft-page {
+  background-image: url('https://your-image-url.com/minecraft-background.jpg'); /* Cambia esta URL por la URL de tu imagen de Minecraft */
   background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.icons {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.minecraft-container {
-  font-family: "Press Start 2P", cursive; /* Fuente tipo pixelada */
-  color: #2c3e50;
-  background-color: #f3ca20;
-  text-align: center;
+  background-attachment: fixed;
+  background-position: center;
   padding: 20px;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px #000;
 }
 
-.minecraft-navbar button {
-  background-color: #8b4513;
-  border: 2px solid #d2691e;
-  color: #f3ca20;
-  font-size: 1.2rem;
-  padding: 10px 20px;
-  margin: 5px;
-  cursor: pointer;
-  transition: background 0.3s;
+.table-section {
+  background-color: rgba(34, 34, 34, 0.8); /* Fondo semitransparente para las tablas */
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  overflow-x: auto;
 }
 
-.minecraft-navbar button.active {
-  background-color: #d2691e;
+.table-section h2 {
+  font-size: 24px;
+  color: #ffdd57; /* Color dorado para los títulos */
+  margin-bottom: 10px;
+  text-align: center;
 }
 
-.minecraft-navbar button:hover {
-  background-color: #8b3a3a;
-}
-
-.minecraft-table-schedule {
+table {
   width: 100%;
   border-collapse: collapse;
+  margin-top: 10px;
 }
 
-.minecraft-table-schedule th,
-.minecraft-table-schedule td {
-  border: 2px solid #2f4f4f;
+th, td {
   padding: 10px;
-  text-align: center;
+  text-align: left;
+  color: #ddd;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.minecraft-search-bar {
-  font-size: 1.2rem;
-  padding: 10px;
-  margin: 10px 0;
-  border: 2px solid #2c3e50;
+th {
+  background-color: #444;
+  font-weight: bold;
+  font-size: 16px;
+  color: #ffdd57;
+}
+
+td {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+table tr:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+@media screen and (max-width: 768px) {
+  .table-section h2 {
+    font-size: 20px;
+  }
+  
+  th, td {
+    font-size: 14px;
+    padding: 8px;
+  }
 }
