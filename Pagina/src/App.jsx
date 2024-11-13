@@ -1,24 +1,59 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./index.css";
-import axios from "axios";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import ArticuloList from "./Componentes/ArticuloList";
-import Articulo from "./Componentes/Articulo";
+import Header from "./Componentes/Header";
+import Navbar from "./Componentes/Navbar";
+import Footer from "./Componentes/Footer";
 
 function App() {
-  return (
-    <Router>
-      <div className="App">
-        <header>
-          <h1>Minecraft Wiki</h1>
-        </header>
 
-        <Switch>
-          <Route path="/" exact component={ArticuloList} />
-          <Route path="/articulo/:id" component={Articulo} />
-        </Switch>
+  //const [count, setCount] = useState(0)
+
+  return (
+    <>
+      <div>
+        <header className="header">
+          <p>Minecraft</p>
+        </header>
+        <main className="body">
+          <div>
+            <h2>Items</h2>
+            <table border="1" style={{width: '100', textAlign: 'center' }}>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>    
+        </main>
+
+        <footer className="footer">
+          <p>Creado por X</p>
+          <div className="icons">
+            <a href=""></a>
+            <a href=""></a>
+            <a href=""></a>
+          </div>
+        </footer>
       </div>
-    </Router>
+    </>
   );
 }
 
