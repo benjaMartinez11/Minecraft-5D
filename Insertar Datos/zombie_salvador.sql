@@ -1,4 +1,4 @@
-INSERT INTO Mob_dimension (mob_id, dimension_id)
+INSERT INTO Zombie_salvador (items_ID, mob_id)
     VALUES 
     (1, 1),
     (2, 1),
@@ -23,4 +23,6 @@ INSERT INTO Mob_dimension (mob_id, dimension_id)
     (20, 1),
     (21, 2),
     (22, 2),
-    (23, 1);
+    (23, 1),
+    (24, 1),
+    (25, 1);
