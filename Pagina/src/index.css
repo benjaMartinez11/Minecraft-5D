@@ -1,31 +1,135 @@
-.footer {
-  background-color: #727272;
-  color: #ffffff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url("/path/to/minecraft-background.jpg"); /* Ruta de la imagen de fondo */
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.navbar {
+  background-color: rgba(0, 0, 0, 0.6); /* Fondo negro translúcido */
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar ul {
+  list-style-type: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 8px 16px;
+  display: inline-block;
+}
+
+.navbar a:hover {
+  background-color: #575757;
+  border-radius: 4px;
+}
+
+.table-section {
+  margin-top: 60px; /* Espacio para evitar que el navbar tape las tablas */
+  padding: 20px;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Fondo translúcido para las secciones de tabla */
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+td img {
+  max-width: 50px;
+  height: auto;
 }
 
 .header {
-  background-color: #5eaa47;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 20px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 999;
+  color: white;
 }
 
-.imagen {
-  width: 50px;
-  height: 50px;
+.header p {
+  font-size: 2rem;
+  margin: 0;
 }
 
-.body {
-  background-image: url();
-  background-size: cover;
-  background-repeat: no-repeat;
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
-.icons {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+footer p {
+  margin: 0;
+}
+
+.icons a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.icons a:hover {
+  color: #ccc;
+}
+
+@media (max-width: 768px) {
+  .navbar ul li {
+    display: block;
+    margin: 10px 0;
+  }
+
+  .table-section {
+    margin-top: 100px;
+  }
+
+  table {
+    font-size: 14px;
+  }
 }
