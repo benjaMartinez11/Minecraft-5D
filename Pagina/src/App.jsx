@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 const App = () => {
   //const [count, setCount] = useState(0)
+  const [view, setView] = useState({});
+
   const [data, setData] = useState({
     jugador: [],
     herramientas_basicas: [],
@@ -98,102 +100,88 @@ const App = () => {
       <header className="header">
         <p>Minecraft</p>
         <nav className="navbar">
-          <ul>
-            <li>
-              <Link to="jugador" smooth={true} duration={500}>
-                Jugador
-              </Link>
-            </li>
-            <li>
-              <Link to="herramientas_basicas" smooth={true} duration={500}>
-                Herramientas Básicas
-              </Link>
-            </li>
-            <li>
-              <Link to="armadura" smooth={true} duration={500}>
-                Armadura
-              </Link>
-            </li>
-            <li>
-              <Link to="encantamientos" smooth={true} duration={500}>
-                Encantamientos
-              </Link>
-            </li>
-            <li>
-              <Link to="comida" smooth={true} duration={500}>
-                Comida
-              </Link>
-            </li>
-            <li>
-              <Link to="mob_pass" smooth={true} duration={500}>
-                Mobs Pasivos
-              </Link>
-            </li>
-            <li>
-              <Link to="mob_neutro" smooth={true} duration={500}>
-                Mobs Neutros
-              </Link>
-            </li>
-            <li>
-              <Link to="mob_hoss" smooth={true} duration={500}>
-                Mobs Hostiles
-              </Link>
-            </li>
-            <li>
-              <Link to="jefes" smooth={true} duration={500}>
-                Jefes
-              </Link>
-            </li>
-            <li>
-              <Link to="caracteristicas_jefe" smooth={true} duration={500}>
-                Características Jefe
-              </Link>
-            </li>
-            <li>
-              <Link to="bioma" smooth={true} duration={500}>
-                Biomas
-              </Link>
-            </li>
-            <li>
-              <Link to="estructura" smooth={true} duration={500}>
-                Estructuras
-              </Link>
-            </li>
-            <li>
-              <Link to="dimension" smooth={true} duration={500}>
-                Dimensiones
-              </Link>
-            </li>
-            <li>
-              <Link to="agricultura" smooth={true} duration={500}>
-                Agricultura
-              </Link>
-            </li>
-            <li>
-              <Link to="cubos" smooth={true} duration={500}>
-                Cubos
-              </Link>
-            </li>
-          </ul>
+          <button onClick={() => setView("inicio")}></button>
+          <button onClick={() => setView("jugador")}></button>
+          <button onClick={() => setView("mobs")}></button>
+          <button onClick={() => setView("jefes")}></button>
+          <button onClick={() => setView("biomas")}></button>
+          <button onClick={() => setView("estructura")}></button>
+          <button onClick={() => setView("dimension")}></button>
+          <button onClick={() => setView("agricultura")}></button>
+          <button onClick={() => setView("cubos")}></button>
         </nav>
       </header>
 
-      <main className="body">
-        {renderTable("jugador", data.jugador)}
-        {renderTable("herramientas_basicas", data.herramientas_basicas)}
-        {renderTable("armadura", data.armadura)}
-        {renderTable("encantamientos", data.encantamientos)}
-        {renderTable("comida", data.comida)}
-        {renderTable("mob_pass", data.mob_pass)}
-        {renderTable("mob_neutro", data.mob_neutro)}
-        {renderTable("mob_hoss", data.mob_hoss)}
-        {renderTable("jefes", data.jefes)}
-        {renderTable("caracteristicas_jefe", data.caracteristicas_jefe)}
-        {renderTable("bioma", data.bioma)}
-        {renderTable("estructura", data.estructura)}
-        {renderTable("dimension", data.dimension)}
-        {renderTable("agricultura", data.agricultura)}
-        {renderTable("cubos", data.cubos)}
+      <main>
+        {view === "inicio" && (
+          <main className="body">
+            {renderTable("jugador", data.jugador)}
+            {renderTable("herramientas_basicas", data.herramientas_basicas)}
+            {renderTable("armadura", data.armadura)}
+            {renderTable("encantamientos", data.encantamientos)}
+            {renderTable("comida", data.comida)}
+            {renderTable("mob_pass", data.mob_pass)}
+            {renderTable("mob_neutro", data.mob_neutro)}
+            {renderTable("mob_hoss", data.mob_hoss)}
+            {renderTable("jefes", data.jefes)}
+            {renderTable("caracteristicas_jefe", data.caracteristicas_jefe)}
+            {renderTable("bioma", data.bioma)}
+            {renderTable("estructura", data.estructura)}
+            {renderTable("dimension", data.dimension)}
+            {renderTable("agricultura", data.agricultura)}
+            {renderTable("cubos", data.cubos)}
+          </main>
+        )}
+
+        {view === "jugador" && (
+          <main className="body">
+            {renderTable("jugador", data.jugador)}
+            {renderTable("herramientas_basicas", data.herramientas_basicas)}
+            {renderTable("armadura", data.armadura)}
+            {renderTable("encantamientos", data.encantamientos)}
+          </main>
+        )}
+
+        {view === "mobs" && (
+          <main className="body">
+            {renderTable("mob_pass", data.mob_pass)}
+            {renderTable("mob_neutro", data.mob_neutro)}
+            {renderTable("mob_hoss", data.mob_hoss)}
+          </main>
+        )}
+
+        {view === "jefes" && (
+          <main className="body">
+            {renderTable("jefes", data.jefes)}
+            {renderTable("caracteristicas_jefe", data.caracteristicas_jefe)}
+          </main>
+        )}
+
+        {view === "biomas" && (
+          <main className="body">{renderTable("bioma", data.bioma)}</main>
+        )}
+
+        {view === "estructura" && (
+          <main className="body">
+            {renderTable("estructura", data.estructura)}
+          </main>
+        )}
+
+        {view === "dimension" && (
+          <main className="body">
+            {renderTable("dimension", data.dimension)}
+          </main>
+        )}
+
+        {view === "agricultura" && (
+          <main className="body">
+            {renderTable("agricultura", data.agricultura)}
+          </main>
+        )}
+
+        {view === "cubos" && (
+          <main className="body">{renderTable("cubos", data.cubos)}</main>
+        )}
       </main>
 
       <footer className="footer">
