@@ -1,20 +1,22 @@
+/* Estilo general de la página */
 .body {
-  font-family: "Arial", sans-serif;
+  font-family: "Press Start 2P", monospace; /* Estilo de fuente tipo pixel */
   margin: 0;
   padding: 0;
-  background-image: url("/path/to/minecraft-background.jpg"); /* Ruta de la imagen de fondo */
+  background-image: url("/Pagina/src/Componentes/Objetos/Minecraft.jpg"); /* Ruta de la imagen de fondo */
   background-size: cover;
   background-position: center;
-  color: white;
 }
 
+/* Estilo de la barra de navegación */
 .navbar {
-  background-color: rgba(0, 0, 0, 0.6); /* Fondo negro translúcido */
-  padding: 10px 0;
+  padding: 0;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro para la navbar */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6); /* Sombra de la barra */
 }
 
 .navbar ul {
@@ -30,71 +32,92 @@
 }
 
 .navbar a {
-  color: white;
+  color: #76a04d; /* Verde similar al color del césped de Minecraft */
   text-decoration: none;
   font-size: 18px;
   padding: 8px 16px;
   display: inline-block;
-}
-
-.navbar a:hover {
-  background-color: #575757;
+  border: 2px solid #76a04d;
   border-radius: 4px;
+  transition: background-color 0.3s ease;
 }
 
+/* Efecto de hover sobre los enlaces */
+.navbar a:hover {
+  background-color: #3d5a34; /* Verde más oscuro en hover */
+  color: #f4f4f4;
+  border-color: #3d5a34;
+}
+
+/* Estilo de las secciones de las tablas */
 .table-section {
   margin-top: 60px; /* Espacio para evitar que el navbar tape las tablas */
   padding: 20px;
   background-color: rgba(
-    0,
-    0,
-    0,
-    0.5
+    56,
+    56,
+    56,
+    0.8
   ); /* Fondo translúcido para las secciones de tabla */
   border-radius: 10px;
   margin-bottom: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7); /* Sombra para el efecto 3D */
 }
 
+/* Estilo de las tablas */
 table {
-  width: 100%;
+  width: 80%;
   border-collapse: collapse;
   margin-bottom: 30px;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgb(255, 255, 255); /* Fondo blanco para las tablas */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Estilo de las celdas de la tabla */
 th,
 td {
   padding: 10px;
   text-align: center;
-  border: 1px solid #ddd;
+  border: 1px solid #242424;
 }
 
 th {
-  background-color: #f4f4f4;
-  color: #333;
+  background-color: #2e8b57; /* Color verde oscuro para los encabezados */
+  color: #fff;
+  font-size: 1.2rem;
 }
 
+td {
+  background-color: #f1f1f1; /* Color gris claro para las celdas */
+}
+
+/* Estilo de las imágenes dentro de las celdas */
 td img {
   max-width: 50px;
   height: auto;
+  border-radius: 5px;
 }
 
+/* Estilo del encabezado (Header) */
 .header {
-  padding: 20px;
+  padding: 25px;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: #000;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 999;
   color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
 }
 
 .header p {
   font-size: 2rem;
   margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
+/* Estilo del pie de página (footer) */
 footer {
   text-align: center;
   padding: 20px;
@@ -109,6 +132,7 @@ footer p {
   margin: 0;
 }
 
+/* Estilo de los iconos en el pie de página */
 .icons a {
   margin: 0 10px;
   color: white;
@@ -116,9 +140,11 @@ footer p {
 }
 
 .icons a:hover {
-  color: #ccc;
+  color: #ccc; /* Color más claro cuando se pasa el ratón */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
+/* Media queries para móviles */
 @media (max-width: 768px) {
   .navbar ul li {
     display: block;
@@ -126,10 +152,16 @@ footer p {
   }
 
   .table-section {
-    margin-top: 100px;
+    margin-top: 100px; /* Ajuste para la sección de la tabla en pantallas pequeñas */
   }
 
   table {
     font-size: 14px;
   }
+}
+
+.tamaño_imagenes {
+  font-family: "Press Start 2P", monospace; /* Estilo de fuente tipo pixel */
+  margin: 0;
+  padding: 0;
 }
