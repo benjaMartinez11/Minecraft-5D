@@ -942,6 +942,76 @@ def lista_jefes():
 
     return jsonify(tabla)
 
+@app.route("/jefes/<int:id>", methods=('DELETE',))
+def borrar_jefes(id):
+    mari = mariadb.connect(
+        user = "minecraft",
+        password ="minecraft111",
+        host ="10.9.120.5",
+        database= "minecraft"
+    )
+    cur = mari.cursor(dictionary=True)
+    cur.execute("DELETE FROM Jefes WHERE ID = %s", (id,))
+    mari.commit()
+
+    return jsonify({"resultado" : "ok",
+                    "id" : id})
+
+@app.route("/jefes/", methods=('POST',))
+def agregar_jefes():
+    mari = mariadb.connect(
+        user = "minecraft",
+        password ="minecraft111",
+        host ="10.9.120.5",
+        database= "minecraft"
+    )
+    cur = mari.cursor(dictionary=True)
+    nombre = request.json["nombre"]
+    salud = request.json["salud"]
+    movilidad = request.json["movilidad"]
+    invocacion = request.json["invocacion"]
+    requisito_inv = request.json["requisitos_inv"]
+    loot = request.json["loot"]
+    loot_exp = request.json["loot_exp"]
+    consulta = """
+        INSERT INTO Jefes (nombre_jefe, salud, movilidad, puede_ser_invocado, requisito_invocacion, loot, loot_exp) 
+        VALUES (%s, %s, %s, %s, %s, %s, %s)
+"""
+
+    cur.execute(consulta, (nombre, salud, movilidad, invocacion, requisito_inv, loot, loot_exp, id))
+    mari.commit()
+    id = cur.lastrowid
+
+    return jsonify({"resultado" : "ok",
+                    "id" : id})
+
+@app.route("/jefes/<int:id>", methods=('PUT',))
+def modificar_jefes(id):
+    mari = mariadb.connect(
+        user = "minecraft",
+        password ="minecraft111",
+        host ="10.9.120.5",
+        database= "minecraft"
+    )
+    cur = mari.cursor(dictionary=True)
+    nombre = request.json["nombre"]
+    salud = request.json["salud"]
+    movilidad = request.json["movilidad"]
+    invocacion = request.json["invocacion"]
+    requisito_inv = request.json["requisitos_inv"]
+    loot = request.json["loot"]
+    loot_exp = request.json["loot_exp"]
+    consulta = """
+        UPDATE Jefes SET nombre_jefe = %s, salud =%s, movilidad =%s,
+        puede_ser_invocado =%s, requisito_invocacion =%s, loot =%s,  loot_exp =%s  WHERE id = %s;
+"""
+    cur.execute(consulta, (nombre, salud, movilidad, invocacion, requisito_inv, loot, loot_exp, id))
+    mari.commit()
+    cur.close()
+    mari.close()
+
+    return jsonify({"resultado" : "ok",
+                    "id" : id})
 #====================================================
 #====================================================
 
@@ -976,6 +1046,70 @@ def lista_jugador():
 
     return jsonify(tabla)
 
+@app.route("/jugadores/<int:id>", methods=('DELETE',))
+def borrar_jugadores(id):
+    mari = mariadb.connect(
+        user = "minecraft",
+        password ="minecraft111",
+        host ="10.9.120.5",
+        database= "minecraft"
+    )
+    cur = mari.cursor(dictionary=True)
+    cur.execute("DELETE FROM Jugadores WHERE ID = %s", (id,))
+    mari.commit()
+
+    return jsonify({"resultado" : "ok",
+                    "id" : id})
+
+@app.route("/jugadores/", methods=('POST',))
+def agregar_jugadores():
+    mari = mariadb.connect(
+        user = "minecraft",
+        password ="minecraft111",
+        host ="10.9.120.5",
+        database= "minecraft"
+    )
+    cur = mari.cursor(dictionary=True)
+    nombre = request.json["nombre"]
+    salud = request.json["salud"]
+    ataque = request.json["ataque"]
+    fecha_de_registro = request.json["fecha_de_registro"]
+    consulta = """
+        INSERT INTO Jugador (nombre_usuario, salud, ataque, fecha_de_registro) 
+        VALUES (%s, %s, %s, %s, %s, %s, %s)
+"""
+
+    cur.execute(consulta, (nombre, salud, ataque, fecha_de_registro, id))
+    mari.commit()
+    id = cur.lastrowid
+
+    return jsonify({"resultado" : "ok",
+                    "id" : id})
+
+@app.route("/jugador/<int:id>", methods=('PUT',))
+def modificar_jugador(id):
+    mari = mariadb.connect(
+        user = "minecraft",
+        password ="minecraft111",
+        host ="10.9.120.5",
+        database= "minecraft"
+    )
+    cur = mari.cursor(dictionary=True)
+    nombre = request.json["nombre"]
+    salud = request.json["salud"]
+    ataque = request.json["ataque"]
+    fecha_de_registro = request.json["fecha_de_registro"]
+    consulta = """
+        UPDATE Jugador SET nombre_jugador = %s, salud =%s, ataque =%s,
+        puede_ser_invocado =%s, loot =%s, WHERE id = %s;
+"""
+    cur.execute(consulta, (nombre, salud, ataque, fecha_de_registro, id))
+    mari.commit()
+    cur.close()
+    mari.close()
+
+    return jsonify({"resultado" : "ok",
+                    "id" : id})
 #====================================================
 #====================================================
 
