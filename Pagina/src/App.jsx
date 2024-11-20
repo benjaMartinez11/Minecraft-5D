@@ -1,60 +1,73 @@
 import React, { useState, useEffect } from "react";
+import { FaInstagram } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
 import "./index.css";
 
 const App = () => {
   const [view, setView] = useState("inicio");
-  const [data, setData] = useState({
-    jugador: [],
-    herramientas_basicas: [],
-    armadura: [],
-    encantamientos: [],
-    comida: [],
-    mob_pass: [],
-    mob_neutro: [],
-    mob_hoss: [],
-    jefes: [],
-    caracteristicas_jefe: [],
-    bioma: [],
-    estructura: [],
-    dimension: [],
-    agricultura: [],
-    cubos: [],
-  });
+  const [jugador, setJugador] = useState([]);
+  const [herramientas_basicas, setHerramientas] = useState([]);
+  const [armadura, setArmadura] = useState([]);
+  const [comida, setComida] = useState([]);
+  const [mob_pass, setMob_pass] = useState([]);
+  const [mob_neutro, setMob_neutro] = useState([]);
+  const [mob_hostil, setmob_hostil] = useState([]);
+  const [jefes, setJefes] = useState([]);
+  const [caracteristicas_jefe, setCaracteristicas_jefe] = useState([]);
+  const [bioma, setBioma] = useState([]);
+  const [estructura, setEstructura] = useState([]);
+  const [dimension, setDimension] = useState([]);
+  const [agricultura, setAgricultura] = useState([]);
+  const [cubos, setCubos] = useState([]);
 
+  // Fetching de todos los datos
   useEffect(() => {
-    // Lista de rutas para obtener los datos desde Flask
-    const routes = [
-      "jugador",
-      "herramientas_basicas",
-      "armadura",
-      "encantamientos",
-      "comida",
-      "mob_pass",
-      "mob_neutro",
-      "mob_hoss",
-      "jefes",
-      "caracteristicas_jefe",
-      "bioma",
-      "estructura",
-      "dimension",
-      "agricultura",
-      "cubos",
-    ];
-
-    // Fetching de todos los datos
-    Promise.all(
-      routes.map((route) =>
-        fetch(`http://127.0.0.1:5000/${route}`)
-          .then((res) => res.json())
-          .then((json) => ({ [route]: json }))
-      )
-    ).then((results) => {
-      const newData = results.reduce(
-        (acc, current) => ({ ...acc, ...current }),
-        {}
-      );
-      setData(newData);
-    });
+    fetch("http://127.0.0.1:5000/jugador")
+      .then((data) => data.json())
+      .then((response) => setJugador(response));
+    fetch("http://127.0.0.1:5000/herramientas_basicas")
+      .then((data) => data.json())
+      .then((response) => setHerramientas(response));
+    fetch("http://127.0.0.1:5000/armadura")
+      .then((data) => data.json())
+      .then((response) => setArmadura(response));
+    fetch("http://127.0.0.1:5000/encantamientos")
+      .then((data) => data.json())
+      .then((response) => setEncantamientos(response));
+    fetch("http://127.0.0.1:5000/comida")
+      .then((data) => data.json())
+      .then((response) => setComida(response));
+    fetch("http://127.0.0.1:5000/mob_pass")
+      .then((data) => data.json())
+      .then((response) => setMob_pass(response));
+    fetch("http://127.0.0.1:5000/mob_neutro")
+      .then((data) => data.json())
+      .then((response) => setMob_neutro(response));
+    fetch("http://127.0.0.1:5000/mob_hostil")
+      .then((data) => data.json())
+      .then((response) => setmob_hostil(response));
+    fetch("http://127.0.0.1:5000/jefes")
+      .then((data) => data.json())
+      .then((response) => setJefes(response));
+    fetch("http://127.0.0.1:5000/caracteristicas_jefe")
+      .then((data) => data.json())
+      .then((response) => setCaracteristicas_jefe(response));
+    fetch("http://127.0.0.1:5000/bioma")
+      .then((data) => data.json())
+      .then((response) => setBioma(response));
+    fetch("http://127.0.0.1:5000/estructura")
+      .then((data) => data.json())
+      .then((response) => setEstructura(response));
+    fetch("http://127.0.0.1:5000/agricultura")
+      .then((data) => data.json())
+      .then((response) => setAgricultura(response));
+    fetch("http://127.0.0.1:5000/dimension")
+      .then((data) => data.json())
+      .then((response) => setDimension(response));
+    fetch("http://127.0.0.1:5000/cubos")
+      .then((data) => data.json())
+      .then((response) => setCubos(response));
   }, []);
 
   const renderTable = (title, items) => (
@@ -101,61 +114,59 @@ const App = () => {
       <main className="body">
         {view === "inicio" && (
           <>
-            {renderTable("jugador", data.jugador)}
-            {renderTable("herramientas_basicas", data.herramientas_basicas)}
-            {renderTable("armadura", data.armadura)}
-            {renderTable("encantamientos", data.encantamientos)}
-            {renderTable("comida", data.comida)}
-            {renderTable("mob_pass", data.mob_pass)}
-            {renderTable("mob_neutro", data.mob_neutro)}
-            {renderTable("mob_hoss", data.mob_hoss)}
-            {renderTable("jefes", data.jefes)}
-            {renderTable("caracteristicas_jefe", data.caracteristicas_jefe)}
-            {renderTable("bioma", data.bioma)}
-            {renderTable("estructura", data.estructura)}
-            {renderTable("dimension", data.dimension)}
-            {renderTable("agricultura", data.agricultura)}
-            {renderTable("cubos", data.cubos)}
+            {renderTable("jugador", jugador)}
+            {renderTable("herramientas_basicas", herramientas_basicas)}
+            {renderTable("armadura", armadura)}
+            {renderTable("comida", comida)}
+            {renderTable("mob_pass", mob_pass)}
+            {renderTable("mob_neutro", mob_neutro)}
+            {renderTable("mob_hostil", mob_hostil)}
+            {renderTable("jefes", jefes)}
+            {renderTable("caracteristicas_jefe", caracteristicas_jefe)}
+            {renderTable("bioma", bioma)}
+            {renderTable("estructura", estructura)}
+            {renderTable("dimension", dimension)}
+            {renderTable("agricultura", agricultura)}
+            {renderTable("cubos", cubos)}
           </>
         )}
 
         {view === "jugador" && (
           <>
-            {renderTable("jugador", data.jugador)}
-            {renderTable("herramientas_basicas", data.herramientas_basicas)}
-            {renderTable("armadura", data.armadura)}
-            {renderTable("encantamientos", data.encantamientos)}
+            {renderTable("jugador", jugador)}
+            {renderTable("herramientas_basicas", herramientas_basicas)}
+            {renderTable("armadura", armadura)}
           </>
         )}
 
         {view === "mobs" && (
           <>
-            {renderTable("mob_pass", data.mob_pass)}
-            {renderTable("mob_neutro", data.mob_neutro)}
-            {renderTable("mob_hoss", data.mob_hoss)}
+            {renderTable("mob_pass", mob_pass)}
+            {renderTable("mob_neutro", mob_neutro)}
+            {renderTable("mob_hostil", mob_hostil)}
           </>
         )}
 
         {view === "jefes" && (
           <>
-            {renderTable("jefes", data.jefes)}
-            {renderTable("caracteristicas_jefe", data.caracteristicas_jefe)}
+            {renderTable("jefes", jefes)}
+            {renderTable("caracteristicas_jefe", caracteristicas_jefe)}
           </>
         )}
 
-        {view === "biomas" && renderTable("bioma", data.bioma)}
-        {view === "estructura" && renderTable("estructura", data.estructura)}
-        {view === "dimension" && renderTable("dimension", data.dimension)}
-        {view === "agricultura" && renderTable("agricultura", data.agricultura)}
-        {view === "cubos" && renderTable("cubos", data.cubos)}
+        {view === "bioma" && renderTable("bioma", bioma)}
+        {view === "estructura" && renderTable("estructura", estructura)}
+        {view === "dimension" && renderTable("dimension", dimension)}
+        {view === "agricultura" && renderTable("agricultura", agricultura)}
+        {view === "cubos" && renderTable("cubos", cubos)}
       </main>
 
       <footer className="footer">
         <p>Creado por X</p>
         <div className="icons">
-          <a href="#">Icono 1</a>
-          <a href="#">Icono 2</a>
-          <a href="#">Icono 3</a>
+          <a href="#"><FaInstagram /></a>
+          <a href="#"><FaGithub /></a>
+          <a href="#"><FaWhatsapp /></a>
         </div>
       </footer>
     </>

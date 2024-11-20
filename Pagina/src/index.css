@@ -1,9 +1,11 @@
 /* Estilo general de la página */
 .body {
-  font-family: "Press Start 2P", monospace; /* Estilo de fuente tipo pixel */
+  font-family: "Press Start 2P", monospace;
+  /* Estilo de fuente tipo pixel */
   margin: 0;
   padding: 0;
-  background-image: url("/Pagina/src/Componentes/Objetos/Minecraft.jpg"); /* Ruta de la imagen de fondo */
+  background-image: url("/Pagina/src/Componentes/Objetos/Minecraft.jpg");
+  /* Ruta de la imagen de fondo */
   background-size: cover;
   background-position: center;
 }
@@ -15,8 +17,10 @@
   width: 100%;
   top: 0;
   z-index: 1000;
-  background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro para la navbar */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6); /* Sombra de la barra */
+  background-color: rgba(0, 0, 0, 0.7);
+  /* Fondo oscuro para la navbar */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+  /* Sombra de la barra */
 }
 
 .navbar ul {
@@ -32,7 +36,8 @@
 }
 
 .navbar a {
-  color: #76a04d; /* Verde similar al color del césped de Minecraft */
+  color: #76a04d;
+  /* Verde similar al color del césped de Minecraft */
   text-decoration: none;
   font-size: 18px;
   padding: 8px 16px;
@@ -44,24 +49,26 @@
 
 /* Efecto de hover sobre los enlaces */
 .navbar a:hover {
-  background-color: #3d5a34; /* Verde más oscuro en hover */
-  color: #f4f4f4;
+  background-color: #3d5a34;
+  /* Verde más oscuro en hover */
+  color: #303030;
   border-color: #3d5a34;
 }
 
 /* Estilo de las secciones de las tablas */
 .table-section {
-  margin-top: 60px; /* Espacio para evitar que el navbar tape las tablas */
+  margin-top: 60px;
+  /* Espacio para evitar que el navbar tape las tablas */
   padding: 20px;
-  background-color: rgba(
-    56,
-    56,
-    56,
-    0.8
-  ); /* Fondo translúcido para las secciones de tabla */
+  background-color: rgba(56,
+      56,
+      56,
+      0.8);
+  /* Fondo translúcido para las secciones de tabla */
   border-radius: 10px;
   margin-bottom: 30px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7); /* Sombra para el efecto 3D */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+  /* Sombra para el efecto 3D */
 }
 
 /* Estilo de las tablas */
@@ -69,7 +76,8 @@ table {
   width: 80%;
   border-collapse: collapse;
   margin-bottom: 30px;
-  background-color: rgb(255, 255, 255); /* Fondo blanco para las tablas */
+  background-color: rgb(61, 61, 61);
+  /* Fondo blanco para las tablas */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -82,13 +90,15 @@ td {
 }
 
 th {
-  background-color: #2e8b57; /* Color verde oscuro para los encabezados */
+  background-color: #2e8b57;
+  /* Color verde oscuro para los encabezados */
   color: #fff;
   font-size: 1.2rem;
 }
 
 td {
-  background-color: #f1f1f1; /* Color gris claro para las celdas */
+  background-color: #f1f1f1;
+  /* Color gris claro para las celdas */
 }
 
 /* Estilo de las imágenes dentro de las celdas */
@@ -140,7 +150,8 @@ footer p {
 }
 
 .icons a:hover {
-  color: #ccc; /* Color más claro cuando se pasa el ratón */
+  color: #ccc;
+  /* Color más claro cuando se pasa el ratón */
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
@@ -152,7 +163,8 @@ footer p {
   }
 
   .table-section {
-    margin-top: 100px; /* Ajuste para la sección de la tabla en pantallas pequeñas */
+    margin-top: 100px;
+    /* Ajuste para la sección de la tabla en pantallas pequeñas */
   }
 
   table {
@@ -161,7 +173,8 @@ footer p {
 }
 
 .tamaño_imagenes {
-  font-family: "Press Start 2P", monospace; /* Estilo de fuente tipo pixel */
+  font-family: "Press Start 2P", monospace;
+  /* Estilo de fuente tipo pixel */
   margin: 0;
   padding: 0;
 }

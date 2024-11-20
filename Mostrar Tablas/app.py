@@ -1,8 +1,12 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 import mariadb
 
 
 app = Flask(__name__)
+CORS(app)
+
+#=======================================
 
 @app.route("/item")
 def listar_item():
@@ -68,7 +72,7 @@ def agregar_armadura():
     defensa = request.json["defensa"]
     dur_uni = request.json["durabilidad_unidad"]
     consulta = """
-        INSERT INTO Armadura (Nombre_armadura, de_que_esta_hecho, durabilidad, 
+        INSERT INTO Armadura (nombre_armadura, de_que_esta_hecho, durabilidad, 
             defensa, durabilidad_unidad) VALUES (%s, %s, %s, %s, %s)
 """
 
@@ -94,7 +98,7 @@ def modificar_armadura(id):
     defensa = request.json["defensa"]
     dur_uni = request.json["durabilidad_unidad"]
     consulta = """
-        UPDATE Armadura SET Nombre_armadura = %s, de_que_esta_hecho = %s, 
+        UPDATE Armadura SET nombre_armadura = %s, de_que_esta_hecho = %s, 
             durabilidad = %s, defensa=%s, durabilidad_unidad=%s
             WHERE id = %s;
 """
@@ -236,7 +240,7 @@ def borrar_mob_hostil(id):
         database= "minecraft"
     )
     cur = mari.cursor(dictionary=True)
-    cur.execute("DELETE FROM Mob_pass WHERE ID = %s", (id,))
+    cur.execute("DELETE FROM Mob_hostil WHERE ID = %s", (id,))
     mari.commit()
 
     return jsonify({"resultado" : "ok",
@@ -292,6 +296,94 @@ def modificar_mob_hostil(id):
             WHERE id = %s;
 """
     cur.execute(consulta, (nombre, loot, loot_exp, movilidad, ataque, vida, distacia,id))
+    mari.commit()
+
+    cur.close()
+    mari.close()
+
+    return jsonify({"resultado" : "ok",
+                    "id" : id})
+#====================================================
+#====================================================
+@app.route("/mob_neutro")
+def listar_mobs_neutro():
+    mari = mariadb.connect(
+        user = "minecraft",
+        password ="minecraft111",
+        host ="10.9.120.5",
+        database= "minecraft"
+    )
+    cur = mari.cursor(dictionary=True)
+    cur.execute("SELECT * FROM Mob_neutro")
+    tabla = cur.fetchall()
+
+    return jsonify(tabla)
+
+@app.route("/mob_neutro/<int:id>", methods=('DELETE',))
+def borrar_mob_neutro(id):
+    mari = mariadb.connect(
+        user = "minecraft",
+        password ="minecraft111",
+        host ="10.9.120.5",
+        database= "minecraft"
+    )
+    cur = mari.cursor(dictionary=True)
+    cur.execute("DELETE FROM Mob_neutro WHERE ID = %s", (id,))
+    mari.commit()
+
+    return jsonify({"resultado" : "ok",
+                    "id" : id})
+
+@app.route("/mob_neutro/", methods=('POST',))
+def agregar_mob_neutro():
+    mari = mariadb.connect(
+        user = "minecraft",
+        password ="minecraft111",
+        host ="10.9.120.5",
+        database= "minecraft"
+    )
+    cur = mari.cursor(dictionary=True)
+    nombre = request.json["nombre"]
+    loot = request.json["loot"]
+    loot_exp = request.json["loot_exp"]
+    reproduccion = request.json["reproduccion"]
+    movilidad = request.json["mivilidad"]
+    ataque = request.json["ataque"]
+    vida = request.json["vida"]
+    consulta = """
+        INSERT INTO Mob_neutro (nombre_neutro, loot, loot_exp, 
+            reproduccion ,movilidad, ataque, vida) VALUES (%s, %s, %s, %s, %s, %s, %s)
+"""
+
+    cur.execute(consulta, (nombre, loot, loot_exp, movilidad, ataque, vida, reproduccion,id))
+    mari.commit()
+    id = cur.lastrowid
+
+    return jsonify({"resultado" : "ok",
+                    "id" : id})
+
+@app.route("/mob_neutro/<int:id>", methods=('PUT',))
+def modificar_mob_neutro(id):
+    mari = mariadb.connect(
+        user = "minecraft",
+        password ="minecraft111",
+        host ="10.9.120.5",
+        database= "minecraft"
+    )
+    cur = mari.cursor(dictionary=True)
+    nombre = request.json["nombre"]
+    loot = request.json["loot"]
+    loot_exp = request.json["loot_exp"]
+    movilidad = request.json["mivilidad"]
+    ataque = request.json["ataque"]
+    vida = request.json["vida"]
+    reproduccion = request.json["reproduccion"]
+    consulta = """
+        UPDATE Mob_hostil SET nombre_hostil = %s, loot = %s, 
+            loot_exp = %s, movilidad=%s, ataque=%s, vida=%s, reproduccion=%s,
+            WHERE id = %s;
+"""
+    cur.execute(consulta, (nombre, loot, loot_exp, movilidad, ataque, vida, reproduccion,id))
     mari.commit()
 
     cur.close()
@@ -518,7 +610,7 @@ def modificar_bioma(id):
     cur = mari.cursor(dictionary=True)
     nombre = request.json["nombre"]
     consulta = """
-        UPDATE Bioma SET nombre_semilla = %s,
+        UPDATE Bioma SET nombre_bioma = %s,
             WHERE id = %s;
 """
     cur.execute(consulta, (nombre,id))
@@ -749,8 +841,8 @@ def agregar_cubos():
     return jsonify({"resultado" : "ok",
                     "id" : id})
 
-@app.route("/comida/<int:id>", methods=('PUT',))
-def modificar_comida(id):
+@app.route("/cubos/<int:id>", methods=('PUT',))
+def modificar_cubos(id):
     mari = mariadb.connect(
         user = "minecraft",
         password ="minecraft111",
@@ -762,7 +854,7 @@ def modificar_comida(id):
     capacidad = request.json["capacidad"]
     interaccion = request.json["interaccion"]
     consulta = """
-        UPDATE Comida SET nombre_cubo = %s, capacidad =%s, interaccion =%s,
+        UPDATE Cubos SET nombre_cubo = %s, capacidad =%s, interaccion =%s,
             WHERE id = %s;
 """
     cur.execute(consulta, (nombre, capacidad, interaccion, id))
@@ -1087,7 +1179,7 @@ def agregar_jugadores():
     return jsonify({"resultado" : "ok",
                     "id" : id})
 
-@app.route("/jugador/<int:id>", methods=('PUT',))
+@app.route("/jugadores/<int:id>", methods=('PUT',))
 def modificar_jugador(id):
     mari = mariadb.connect(
         user = "minecraft",
