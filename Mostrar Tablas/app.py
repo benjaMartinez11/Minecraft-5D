@@ -1,14 +1,33 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, Flask, render_template, Blueprint
 from flask_cors import CORS
 import mariadb
-
-
+bp = Blueprint()
 app = Flask(__name__)
-CORS(app)
+
+#---------------------------------------------------------
+#---------------------NUEVO-------------------------------
+@app.route("/item")
+def listar_item():
+    mari = mariadb.connect(
+        user = "minecraft",
+        password ="minecraft111",
+        host ="10.9.120.5",
+        database= "minecraft"
+    )
+    cur = mari.cursor()
+    cur.execute("SELECT * FROM Item")
+
+    items = [column[0] for column in cur.description]
+    
+    tabla = []
+    for row in cur:
+        tabla.append(dict(zip(items, row)))
+
+    return render_template("item.html", tablas = tabla)
 
 #=======================================
 
-@app.route("/item")
+@app.route("/api/item")
 def listar_item():
     mari = mariadb.connect(
         user = "minecraft",
@@ -28,7 +47,7 @@ def listar_item():
     return jsonify(tabla)
 
 #====================================================
-@app.route("/armadura")
+@app.route("/api/armadura")
 def listar_armaduras():
     mari = mariadb.connect(
         user = "minecraft",
@@ -40,9 +59,9 @@ def listar_armaduras():
     cur.execute("SELECT * FROM Armadura")
     tabla = cur.fetchall()
 
-    return jsonify(tabla)
+    return render_template(tabla)
 
-@app.route("/armadura/<int:id>", methods=('DELETE',))
+@app.route("/api/armadura/<int:id>", methods=('DELETE',))
 def borrar_armadura(id):
     mari = mariadb.connect(
         user = "minecraft",
@@ -57,7 +76,9 @@ def borrar_armadura(id):
     return jsonify({"resultado" : "ok",
                     "id" : id})
 
-@app.route("/armadura/", methods=('POST',))
+#====================================================
+
+@app.route("/api/armadura/", methods=('POST',))
 def agregar_armadura():
     mari = mariadb.connect(
         user = "minecraft",
@@ -83,7 +104,9 @@ def agregar_armadura():
     return jsonify({"resultado" : "ok",
                     "id" : id})
 
-@app.route("/armadura/<int:id>", methods=('PUT',))
+#====================================================
+
+@app.route("/api/armadura/<int:id>", methods=('PUT',))
 def modificar_armadura(id):
     mari = mariadb.connect(
         user = "minecraft",
@@ -114,7 +137,7 @@ def modificar_armadura(id):
 
 #====================================================
 #====================================================
-@app.route("/mob")
+@app.route("/api/mob")
 def listar_mobs():
     mari = mariadb.connect(
         user = "minecraft",
@@ -131,7 +154,7 @@ def listar_mobs():
 #====================================================
 #====================================================
 
-@app.route("/mob_pass")
+@app.route("/api/mob_pass")
 def listar_mobs_pass():
     mari = mariadb.connect(
         user = "minecraft",
@@ -145,7 +168,7 @@ def listar_mobs_pass():
 
     return jsonify(tabla)
 
-@app.route("/mob_pass/<int:id>", methods=('DELETE',))
+@app.route("/api/mob_pass/<int:id>", methods=('DELETE',))
 def borrar_mob_pass(id):
     mari = mariadb.connect(
         user = "minecraft",
@@ -160,7 +183,7 @@ def borrar_mob_pass(id):
     return jsonify({"resultado" : "ok",
                     "id" : id})
 
-@app.route("/mob_pass/", methods=('POST',))
+@app.route("/api/mob_pass/", methods=('POST',))
 def agregar_mob_pass():
     mari = mariadb.connect(
         user = "minecraft",
@@ -187,7 +210,7 @@ def agregar_mob_pass():
     return jsonify({"resultado" : "ok",
                     "id" : id})
 
-@app.route("/mob_pass/<int:id>", methods=('PUT',))
+@app.route("/api/mob_pass/<int:id>", methods=('PUT',))
 def modificar_mob_pass(id):
     mari = mariadb.connect(
         user = "minecraft",
@@ -217,7 +240,7 @@ def modificar_mob_pass(id):
                     "id" : id})
 #====================================================
 #====================================================
-@app.route("/mob_hostil")
+@app.route("/api/mob_hostil")
 def listar_mobs_hostil():
     mari = mariadb.connect(
         user = "minecraft",
@@ -231,7 +254,7 @@ def listar_mobs_hostil():
 
     return jsonify(tabla)
 
-@app.route("/mob_hostil/<int:id>", methods=('DELETE',))
+@app.route("/api/mob_hostil/<int:id>", methods=('DELETE',))
 def borrar_mob_hostil(id):
     mari = mariadb.connect(
         user = "minecraft",
@@ -246,7 +269,7 @@ def borrar_mob_hostil(id):
     return jsonify({"resultado" : "ok",
                     "id" : id})
 
-@app.route("/mob_hostil/", methods=('POST',))
+@app.route("/api/mob_hostil/", methods=('POST',))
 def agregar_mob_hostil():
     mari = mariadb.connect(
         user = "minecraft",
@@ -274,7 +297,7 @@ def agregar_mob_hostil():
     return jsonify({"resultado" : "ok",
                     "id" : id})
 
-@app.route("/mob_hostil/<int:id>", methods=('PUT',))
+@app.route("/api/mob_hostil/<int:id>", methods=('PUT',))
 def modificar_mob_hostil(id):
     mari = mariadb.connect(
         user = "minecraft",
@@ -305,7 +328,7 @@ def modificar_mob_hostil(id):
                     "id" : id})
 #====================================================
 #====================================================
-@app.route("/mob_neutro")
+@app.route("/api/mob_neutro")
 def listar_mobs_neutro():
     mari = mariadb.connect(
         user = "minecraft",
@@ -319,7 +342,7 @@ def listar_mobs_neutro():
 
     return jsonify(tabla)
 
-@app.route("/mob_neutro/<int:id>", methods=('DELETE',))
+@app.route("/api/mob_neutro/<int:id>", methods=('DELETE',))
 def borrar_mob_neutro(id):
     mari = mariadb.connect(
         user = "minecraft",
@@ -334,7 +357,7 @@ def borrar_mob_neutro(id):
     return jsonify({"resultado" : "ok",
                     "id" : id})
 
-@app.route("/mob_neutro/", methods=('POST',))
+@app.route("/api/mob_neutro/", methods=('POST',))
 def agregar_mob_neutro():
     mari = mariadb.connect(
         user = "minecraft",
@@ -362,7 +385,7 @@ def agregar_mob_neutro():
     return jsonify({"resultado" : "ok",
                     "id" : id})
 
-@app.route("/mob_neutro/<int:id>", methods=('PUT',))
+@app.route("/api/mob_neutro/<int:id>", methods=('PUT',))
 def modificar_mob_neutro(id):
     mari = mariadb.connect(
         user = "minecraft",
@@ -393,7 +416,7 @@ def modificar_mob_neutro(id):
                     "id" : id})
 #====================================================
 #====================================================
-@app.route("/dimension")
+@app.route("/api/dimension")
 def listas_dimension():
     mari = mariadb.connect(
         user = "minecraft",
@@ -407,7 +430,7 @@ def listas_dimension():
 
     return jsonify(tabla)
 
-@app.route("/dimension/<int:id>", methods=('DELETE',))
+@app.route("/api/dimension/<int:id>", methods=('DELETE',))
 def borrar_dimension(id):
     mari = mariadb.connect(
         user = "minecraft",
@@ -422,7 +445,7 @@ def borrar_dimension(id):
     return jsonify({"resultado" : "ok",
                     "id" : id})
 
-@app.route("/dimesion/", methods=('POST',))
+@app.route("/api/dimesion/", methods=('POST',))
 def agregar_dimension():
     mari = mariadb.connect(
         user = "minecraft",
@@ -444,7 +467,7 @@ def agregar_dimension():
     return jsonify({"resultado" : "ok",
                     "id" : id})
 
-@app.route("/dimension/<int:id>", methods=('PUT',))
+@app.route("/api/dimension/<int:id>", methods=('PUT',))
 def modificar_dimension(id):
     mari = mariadb.connect(
         user = "minecraft",
@@ -469,7 +492,7 @@ def modificar_dimension(id):
                     "id" : id})
 #====================================================
 #====================================================
-@app.route("/agricultura")
+@app.route("/api/agricultura")
 def listas_Agricultura():
     mari = mariadb.connect(
         user = "minecraft",
@@ -483,7 +506,7 @@ def listas_Agricultura():
 
     return jsonify(tabla)
 
-@app.route("/agricultura/<int:id>", methods=('DELETE',))
+@app.route("/api/agricultura/<int:id>", methods=('DELETE',))
 def borrar_Agricultura(id):
     mari = mariadb.connect(
         user = "minecraft",
@@ -498,7 +521,7 @@ def borrar_Agricultura(id):
     return jsonify({"resultado" : "ok",
                     "id" : id})
 
-@app.route("/agricultura/", methods=('POST',))
+@app.route("/api/agricultura/", methods=('POST',))
 def agregar_Agrilcultura():
     mari = mariadb.connect(
         user = "minecraft",
@@ -522,7 +545,7 @@ def agregar_Agrilcultura():
     return jsonify({"resultado" : "ok",
                     "id" : id})
 
-@app.route("/agricultura/<int:id>", methods=('PUT',))
+@app.route("/api/agricultura/<int:id>", methods=('PUT',))
 def modificar_agricultura(id):
     mari = mariadb.connect(
         user = "minecraft",
@@ -549,7 +572,7 @@ def modificar_agricultura(id):
 #====================================================
 #====================================================
 
-@app.route("/bioma")
+@app.route("/api/bioma")
 def lista_bioma():
     mari = mariadb.connect(
         user = "minecraft",
@@ -563,7 +586,7 @@ def lista_bioma():
 
     return jsonify(tabla)
 
-@app.route("/bioma/<int:id>", methods=('DELETE',))
+@app.route("/api/bioma/<int:id>", methods=('DELETE',))
 def borrar_bioma(id):
     mari = mariadb.connect(
         user = "minecraft",
@@ -578,7 +601,7 @@ def borrar_bioma(id):
     return jsonify({"resultado" : "ok",
                     "id" : id})
 
-@app.route("/bioma/", methods=('POST',))
+@app.route("/api/bioma/", methods=('POST',))
 def agregar_bioma():
     mari = mariadb.connect(
         user = "minecraft",
@@ -599,7 +622,7 @@ def agregar_bioma():
     return jsonify({"resultado" : "ok",
                     "id" : id})
 
-@app.route("/bioma/<int:id>", methods=('PUT',))
+@app.route("/api/bioma/<int:id>", methods=('PUT',))
 def modificar_bioma(id):
     mari = mariadb.connect(
         user = "minecraft",
@@ -624,7 +647,7 @@ def modificar_bioma(id):
 #====================================================
 #====================================================
 
-@app.route("/caracteristicas_jefe")
+@app.route("/api/caracteristicas_jefe")
 def lista_caracteristicas_jefes():
     mari = mariadb.connect(
         user = "minecraft",
@@ -638,7 +661,7 @@ def lista_caracteristicas_jefes():
 
     return jsonify(tabla)
 
-@app.route("/caracteristicas_jefe/<int:id>", methods=('DELETE',))
+@app.route("/api/caracteristicas_jefe/<int:id>", methods=('DELETE',))
 def borrar_caracteristicas_jefe(id):
     mari = mariadb.connect(
         user = "minecraft",
@@ -653,7 +676,7 @@ def borrar_caracteristicas_jefe(id):
     return jsonify({"resultado" : "ok",
                     "id" : id})
 
-@app.route("/caracteristicas_jefe/", methods=('POST',))
+@app.route("/api/caracteristicas_jefe/", methods=('POST',))
 def agregar_caracteristicas_jefe():
     mari = mariadb.connect(
         user = "minecraft",
@@ -678,7 +701,7 @@ def agregar_caracteristicas_jefe():
     return jsonify({"resultado" : "ok",
                     "id" : id})
 
-@app.route("/caracteristicas_jefe/<int:id>", methods=('PUT',))
+@app.route("/api/caracteristicas_jefe/<int:id>", methods=('PUT',))
 def modificar_caracteristicas_jefe(id):
     mari = mariadb.connect(
         user = "minecraft",
@@ -707,7 +730,7 @@ def modificar_caracteristicas_jefe(id):
 #====================================================
 #====================================================
 
-@app.route("/comida")
+@app.route("/api/comida")
 def lista_comida():
     mari = mariadb.connect(
         user = "minecraft",
@@ -721,7 +744,7 @@ def lista_comida():
 
     return jsonify(tabla)
 
-@app.route("/comida/<int:id>", methods=('DELETE',))
+@app.route("/api/comida/<int:id>", methods=('DELETE',))
 def borrar_comida(id):
     mari = mariadb.connect(
         user = "minecraft",
@@ -736,7 +759,7 @@ def borrar_comida(id):
     return jsonify({"resultado" : "ok",
                     "id" : id})
 
-@app.route("/comida/", methods=('POST',))
+@app.route("/api/comida/", methods=('POST',))
 def agregar_comida():
     mari = mariadb.connect(
         user = "minecraft",
@@ -761,7 +784,7 @@ def agregar_comida():
     return jsonify({"resultado" : "ok",
                     "id" : id})
 
-@app.route("/comida/<int:id>", methods=('PUT',))
+@app.route("/api/comida/<int:id>", methods=('PUT',))
 def modificar_comida(id):
     mari = mariadb.connect(
         user = "minecraft",
@@ -789,7 +812,7 @@ def modificar_comida(id):
 #====================================================
 #====================================================
 
-@app.route("/cubos")
+@app.route("/api/cubos")
 def lista_cubos():
     mari = mariadb.connect(
         user = "minecraft",
@@ -803,7 +826,7 @@ def lista_cubos():
 
     return jsonify(tabla)
 
-@app.route("/cubos/<int:id>", methods=('DELETE',))
+@app.route("/api/cubos/<int:id>", methods=('DELETE',))
 def borrar_cubos(id):
     mari = mariadb.connect(
         user = "minecraft",
@@ -818,7 +841,7 @@ def borrar_cubos(id):
     return jsonify({"resultado" : "ok",
                     "id" : id})
 
-@app.route("/cubos/", methods=('POST',))
+@app.route("/api/cubos/", methods=('POST',))
 def agregar_cubos():
     mari = mariadb.connect(
         user = "minecraft",
@@ -841,7 +864,7 @@ def agregar_cubos():
     return jsonify({"resultado" : "ok",
                     "id" : id})
 
-@app.route("/cubos/<int:id>", methods=('PUT',))
+@app.route("/api/cubos/<int:id>", methods=('PUT',))
 def modificar_cubos(id):
     mari = mariadb.connect(
         user = "minecraft",
@@ -867,7 +890,7 @@ def modificar_cubos(id):
 #====================================================
 #====================================================
 
-@app.route("/estructura")
+@app.route("/api/estructura")
 def lista_estructura():
     mari = mariadb.connect(
         user = "minecraft",
@@ -881,7 +904,7 @@ def lista_estructura():
 
     return jsonify(tabla)
 
-@app.route("/estructura/<int:id>", methods=('DELETE',))
+@app.route("/api/estructura/<int:id>", methods=('DELETE',))
 def borrar_estructura(id):
     mari = mariadb.connect(
         user = "minecraft",
@@ -896,7 +919,7 @@ def borrar_estructura(id):
     return jsonify({"resultado" : "ok",
                     "id" : id})
 
-@app.route("/estructura/", methods=('POST',))
+@app.route("/api/estructura/", methods=('POST',))
 def agregar_estructura():
     mari = mariadb.connect(
         user = "minecraft",
@@ -917,7 +940,7 @@ def agregar_estructura():
     return jsonify({"resultado" : "ok",
                     "id" : id})
 
-@app.route("/estructura/<int:id>", methods=('PUT',))
+@app.route("/api/estructura/<int:id>", methods=('PUT',))
 def modificar_estructura(id):
     mari = mariadb.connect(
         user = "minecraft",
@@ -941,7 +964,7 @@ def modificar_estructura(id):
 #====================================================
 #====================================================
 
-@app.route("/herramientas_basicas")
+@app.route("/api/herramientas_basicas")
 def lista_herramientas_basicas():
     mari = mariadb.connect(
         user = "minecraft",
@@ -955,7 +978,7 @@ def lista_herramientas_basicas():
 
     return jsonify(tabla)
 
-@app.route("/herramientas_basicas/<int:id>", methods=('DELETE',))
+@app.route("/api/herramientas_basicas/<int:id>", methods=('DELETE',))
 def borrar_herramientas(id):
     mari = mariadb.connect(
         user = "minecraft",
@@ -970,7 +993,7 @@ def borrar_herramientas(id):
     return jsonify({"resultado" : "ok",
                     "id" : id})
 
-@app.route("/herramientas_basicas/", methods=('POST',))
+@app.route("/api/herramientas_basicas/", methods=('POST',))
 def agregar_herramientas():
     mari = mariadb.connect(
         user = "minecraft",
@@ -994,7 +1017,7 @@ def agregar_herramientas():
     return jsonify({"resultado" : "ok",
                     "id" : id})
 
-@app.route("/herramientas_basicas/<int:id>", methods=('PUT',))
+@app.route("/api/herramientas_basicas/<int:id>", methods=('PUT',))
 def modificar_herrmientas(id):
     mari = mariadb.connect(
         user = "minecraft",
@@ -1021,7 +1044,7 @@ def modificar_herrmientas(id):
 #====================================================
 #====================================================
 
-@app.route("/jefes")
+@app.route("/api/jefes")
 def lista_jefes():
     mari = mariadb.connect(
         user = "minecraft",
@@ -1035,7 +1058,7 @@ def lista_jefes():
 
     return jsonify(tabla)
 
-@app.route("/jefes/<int:id>", methods=('DELETE',))
+@app.route("/api/jefes/<int:id>", methods=('DELETE',))
 def borrar_jefes(id):
     mari = mariadb.connect(
         user = "minecraft",
@@ -1050,7 +1073,7 @@ def borrar_jefes(id):
     return jsonify({"resultado" : "ok",
                     "id" : id})
 
-@app.route("/jefes/", methods=('POST',))
+@app.route("/api/jefes/", methods=('POST',))
 def agregar_jefes():
     mari = mariadb.connect(
         user = "minecraft",
@@ -1078,7 +1101,7 @@ def agregar_jefes():
     return jsonify({"resultado" : "ok",
                     "id" : id})
 
-@app.route("/jefes/<int:id>", methods=('PUT',))
+@app.route("/api/jefes/<int:id>", methods=('PUT',))
 def modificar_jefes(id):
     mari = mariadb.connect(
         user = "minecraft",
@@ -1108,7 +1131,7 @@ def modificar_jefes(id):
 #====================================================
 #====================================================
 
-@app.route("/jefes_dimension")
+@app.route("/api/jefes_dimension")
 def lista_jefes_dimension():
     mari = mariadb.connect(
         user = "minecraft",
@@ -1125,7 +1148,7 @@ def lista_jefes_dimension():
 #====================================================
 #====================================================
 
-@app.route("/jugador")
+@app.route("/api/jugador")
 def lista_jugador():
     mari = mariadb.connect(
         user = "minecraft",
@@ -1139,7 +1162,7 @@ def lista_jugador():
 
     return jsonify(tabla)
 
-@app.route("/jugadores/<int:id>", methods=('DELETE',))
+@app.route("/api/jugadores/<int:id>", methods=('DELETE',))
 def borrar_jugadores(id):
     mari = mariadb.connect(
         user = "minecraft",
@@ -1154,7 +1177,7 @@ def borrar_jugadores(id):
     return jsonify({"resultado" : "ok",
                     "id" : id})
 
-@app.route("/jugadores/", methods=('POST',))
+@app.route("/api/jugadores/", methods=('POST',))
 def agregar_jugadores():
     mari = mariadb.connect(
         user = "minecraft",
@@ -1179,7 +1202,7 @@ def agregar_jugadores():
     return jsonify({"resultado" : "ok",
                     "id" : id})
 
-@app.route("/jugadores/<int:id>", methods=('PUT',))
+@app.route("/api/jugadores/<int:id>", methods=('PUT',))
 def modificar_jugador(id):
     mari = mariadb.connect(
         user = "minecraft",
@@ -1206,7 +1229,7 @@ def modificar_jugador(id):
 #====================================================
 #====================================================
 
-@app.route("/zombie_salvador")
+@app.route("/api/zombie_salvador")
 def lista_zombie_salvador():
     mari = mariadb.connect(
         user = "minecraft",
