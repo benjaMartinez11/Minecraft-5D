@@ -1,0 +1,24 @@
+{% block title %}mostrar_cubos{% endblock %}
+
+{% block header %}
+    <h1>Cubos</h1>
+{% endblock %}
+
+{% block content %}
+    {% for cubos in tablas %}
+        <article class="cubos">
+            <header>
+                <div>
+                    <h2>{{ cubos['titulo'] }}</h2>
+                </div>
+            </header>
+        </article>
+        {% if not loop.last %}
+            <hr>
+        {% endif %}
+        
+    {% endfor %}
+    <footer>
+        <p>© minecraft</p>
+    </footer>
+{% endblock %}

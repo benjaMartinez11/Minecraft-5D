@@ -1,0 +1,24 @@
+{% block title %}mostrar_jugador{% endblock %}
+
+{% block header %}
+    <h1>Jugador</h1>
+{% endblock %}
+
+{% block content %}
+    {% for jugador in tablas %}
+        <article class="jugador">
+            <header>
+                <div>
+                    <h2>{{ jugador['titulo'] }}</h2>
+                </div>
+            </header>
+        </article>
+        {% if not loop.last %}
+            <hr>
+        {% endif %}
+        
+    {% endfor %}
+    <footer>
+        <p>© minecraft</p>
+    </footer>
+{% endblock %}

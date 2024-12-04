@@ -1,0 +1,24 @@
+{% block title %}mostrar_zombie_salvador{% endblock %}
+
+{% block header %}
+    <h1>Zombie_salvador</h1>
+{% endblock %}
+
+{% block content %}
+    {% for zombie_salvador in tablas %}
+        <article class="zombie_salvador">
+            <header>
+                <div>
+                    <h2>{{ zombie_salvador['titulo'] }}</h2>
+                </div>
+            </header>
+        </article>
+        {% if not loop.last %}
+            <hr>
+        {% endif %}
+        
+    {% endfor %}
+    <footer>
+        <p>© minecraft</p>
+    </footer>
+{% endblock %}

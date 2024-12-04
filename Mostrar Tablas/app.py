@@ -1,13 +1,16 @@
-from flask import Flask, jsonify, request, Flask, render_template, Blueprint
+from flask import Flask, jsonify, request, Flask, render_template
 from flask_cors import CORS
 import mariadb
-bp = Blueprint()
-app = Flask(__name__)
 
+app = Flask(__name__)
+#LO NUEVO NO LLEVA /api
+#LE VAN A PONER EJ: /item
 #---------------------------------------------------------
-#---------------------NUEVO-------------------------------
+#-----------------------NUEVO-----------------------------
+#---------------------------------------------------------
+
 @app.route("/item")
-def listar_item():
+def mostrar_item():
     mari = mariadb.connect(
         user = "minecraft",
         password ="minecraft111",
@@ -22,8 +25,333 @@ def listar_item():
     tabla = []
     for row in cur:
         tabla.append(dict(zip(items, row)))
+        print(tabla)
+    return render_template("item.html", tablas = tabla)
+
+
+@app.route("/armadura")
+def mostrar_armadura():
+    mari = mariadb.connect(
+        user = "minecraft",
+        password ="minecraft111",
+        host ="10.9.120.5",
+        database= "minecraft"
+    )
+    cur = mari.cursor()
+    cur.execute("SELECT * FROM Armadura")
+
+    armaduras = [column[0] for column in cur.description]
+    
+    tabla = []
+    for row in cur:
+        tabla.append(dict(zip(armaduras, row)))
 
     return render_template("item.html", tablas = tabla)
+
+
+@app.route("/mob")
+def mostrar_mob():
+    mari = mariadb.connect(
+        user = "minecraft",
+        password ="minecraft111",
+        host ="10.9.120.5",
+        database= "minecraft"
+    )
+    cur = mari.cursor()
+    cur.execute("SELECT * FROM Mobs")
+
+    mobs = [column[0] for column in cur.description]
+    
+    tabla = []
+    for row in cur:
+        tabla.append(dict(zip(mobs, row)))
+
+    return render_template("mob.html", tablas = tabla)
+
+
+@app.route("/mob_pass")
+def mostrar_mob_pass():
+    mari = mariadb.connect(
+        user = "minecraft",
+        password ="minecraft111",
+        host ="10.9.120.5",
+        database= "minecraft"
+    )
+    cur = mari.cursor()
+    cur.execute("SELECT * FROM Mobs_pass")
+
+    mobs_pass = [column[0] for column in cur.description]
+    
+    tabla = []
+    for row in cur:
+        tabla.append(dict(zip(mobs_pass, row)))
+
+    return render_template("mob_pass.html", tablas = tabla)
+
+
+@app.route("/mob_hostil")
+def mostrar_mob_hostil():
+    mari = mariadb.connect(
+        user = "minecraft",
+        password ="minecraft111",
+        host ="10.9.120.5",
+        database= "minecraft"
+    )
+    cur = mari.cursor()
+    cur.execute("SELECT * FROM Mob_hostil")
+
+    mobs_hostil = [column[0] for column in cur.description]
+    
+    tabla = []
+    for row in cur:
+        tabla.append(dict(zip(mobs_hostil, row)))
+
+    return render_template("mob_hostil.html", tablas = tabla)
+
+
+@app.route("/mob_neutro")
+def mostrar_mob_neutro():
+    mari = mariadb.connect(
+        user = "minecraft",
+        password ="minecraft111",
+        host ="10.9.120.5",
+        database= "minecraft"
+    )
+    cur = mari.cursor()
+    cur.execute("SELECT * FROM Mob_neutro")
+
+    mobs_neutro = [column[0] for column in cur.description]
+    
+    tabla = []
+    for row in cur:
+        tabla.append(dict(zip(mobs_neutro, row)))
+
+    return render_template("mob_neutro.html", tablas = tabla)
+
+
+@app.route("/dimension")
+def mostrar_dimension():
+    mari = mariadb.connect(
+        user = "minecraft",
+        password ="minecraft111",
+        host ="10.9.120.5",
+        database= "minecraft"
+    )
+    cur = mari.cursor()
+    cur.execute("SELECT * FROM Dimension")
+
+    dimensiones = [column[0] for column in cur.description]
+    
+    tabla = []
+    for row in cur:
+        tabla.append(dict(zip(dimensiones, row)))
+
+    return render_template("dimension.html", tablas = tabla)
+
+
+@app.route("/agricultura")
+def mostrar_agricultura():
+    mari = mariadb.connect(
+        user = "minecraft",
+        password ="minecraft111",
+        host ="10.9.120.5",
+        database= "minecraft"
+    )
+    cur = mari.cursor()
+    cur.execute("SELECT * FROM Agricultura")
+
+    agriculturas = [column[0] for column in cur.description]
+    
+    tabla = []
+    for row in cur:
+        tabla.append(dict(zip(agriculturas, row)))
+
+    return render_template("agricultura.html", tablas = tabla)
+
+
+@app.route("/bioma")
+def mostrar_bioma():
+    mari = mariadb.connect(
+        user = "minecraft",
+        password ="minecraft111",
+        host ="10.9.120.5",
+        database= "minecraft"
+    )
+    cur = mari.cursor()
+    cur.execute("SELECT * FROM Bioma")
+
+    biomas = [column[0] for column in cur.description]
+    
+    tabla = []
+    for row in cur:
+        tabla.append(dict(zip(biomas, row)))
+
+    return render_template("bioma.html", tablas = tabla)
+
+
+@app.route("/caracteristicas_jefe")
+def mostrar_caracteristicas_jefe():
+    mari = mariadb.connect(
+        user = "minecraft",
+        password ="minecraft111",
+        host ="10.9.120.5",
+        database= "minecraft"
+    )
+    cur = mari.cursor()
+    cur.execute("SELECT * FROM Caracteristicas_jefe")
+
+    caracteristicas_jefes = [column[0] for column in cur.description]
+    
+    tabla = []
+    for row in cur:
+        tabla.append(dict(zip(caracteristicas_jefes, row)))
+
+    return render_template("caracteristicas_jefe.html", tablas = tabla)
+
+
+@app.route("/comida")
+def mostrar_comida():
+    mari = mariadb.connect(
+        user = "minecraft",
+        password ="minecraft111",
+        host ="10.9.120.5",
+        database= "minecraft"
+    )
+    cur = mari.cursor()
+    cur.execute("SELECT * FROM Comida")
+
+    comidas = [column[0] for column in cur.description]
+    
+    tabla = []
+    for row in cur:
+        tabla.append(dict(zip(comidas, row)))
+
+    return render_template("comida.html", tablas = tabla)
+
+
+@app.route("/cubos")
+def mostrar_cubos():
+    mari = mariadb.connect(
+        user = "minecraft",
+        password ="minecraft111",
+        host ="10.9.120.5",
+        database= "minecraft"
+    )
+    cur = mari.cursor()
+    cur.execute("SELECT * FROM Cubos")
+
+    cuboss = [column[0] for column in cur.description]
+    
+    tabla = []
+    for row in cur:
+        tabla.append(dict(zip(cuboss, row)))
+
+    return render_template("cubos.html", tablas = tabla)
+
+
+@app.route("/estructura")
+def mostrar_estructura():
+    mari = mariadb.connect(
+        user = "minecraft",
+        password ="minecraft111",
+        host ="10.9.120.5",
+        database= "minecraft"
+    )
+    cur = mari.cursor()
+    cur.execute("SELECT * FROM Estructura")
+
+    estructuras = [column[0] for column in cur.description]
+    
+    tabla = []
+    for row in cur:
+        tabla.append(dict(zip(estructuras, row)))
+
+    return render_template("estructura.html", tablas = tabla)
+
+
+
+@app.route("/herramientas_basicas")
+def mostrar_herramientas_basicas():
+    mari = mariadb.connect(
+        user = "minecraft",
+        password ="minecraft111",
+        host ="10.9.120.5",
+        database= "minecraft"
+    )
+    cur = mari.cursor()
+    cur.execute("SELECT * FROM Herramientas_basicas")
+
+    herramientas_basicass = [column[0] for column in cur.description]
+    
+    tabla = []
+    for row in cur:
+        tabla.append(dict(zip(herramientas_basicass, row)))
+
+    return render_template("herramientas_basicas.html", tablas = tabla)
+
+
+
+@app.route("/jefes")
+def mostrar_jefes():
+    mari = mariadb.connect(
+        user = "minecraft",
+        password ="minecraft111",
+        host ="10.9.120.5",
+        database= "minecraft"
+    )
+    cur = mari.cursor()
+    cur.execute("SELECT * FROM Jefes")
+
+    jefess = [column[0] for column in cur.description]
+    
+    tabla = []
+    for row in cur:
+        tabla.append(dict(zip(jefess, row)))
+
+    return render_template("jefes.html", tablas = tabla)
+
+
+
+@app.route("/jugador")
+def mostrar_jugador():
+    mari = mariadb.connect(
+        user = "minecraft",
+        password ="minecraft111",
+        host ="10.9.120.5",
+        database= "minecraft"
+    )
+    cur = mari.cursor()
+    cur.execute("SELECT * FROM Jugador")
+
+    jugadores = [column[0] for column in cur.description]
+    
+    tabla = []
+    for row in cur:
+        tabla.append(dict(zip(jugadores, row)))
+
+    return render_template("jugador.html", tablas = tabla)
+
+
+
+@app.route("/zombie_salvador")
+def mostrar_zombie_salvador():
+    mari = mariadb.connect(
+        user = "minecraft",
+        password ="minecraft111",
+        host ="10.9.120.5",
+        database= "minecraft"
+    )
+    cur = mari.cursor()
+    cur.execute("SELECT * FROM Zombie_salvador")
+
+    zombie_salvadores = [column[0] for column in cur.description]
+    
+    tabla = []
+    for row in cur:
+        tabla.append(dict(zip(zombie_salvadores, row)))
+
+    return render_template("zombie_salvador.html", tablas = tabla)
+
 
 #=======================================
 

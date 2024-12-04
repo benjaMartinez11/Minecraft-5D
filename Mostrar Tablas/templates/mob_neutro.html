@@ -1,0 +1,24 @@
+{% block title %}mostrar_mob_neutro{% endblock %}
+
+{% block header %}
+    <h1>Mob_neutro</h1>
+{% endblock %}
+
+{% block content %}
+    {% for mob_neutro in tablas %}
+        <article class="mob_neutro">
+            <header>
+                <div>
+                    <h2>{{ mob_neutro['titulo'] }}</h2>
+                </div>
+            </header>
+        </article>
+        {% if not loop.last %}
+            <hr>
+        {% endif %}
+        
+    {% endfor %}
+    <footer>
+        <p>© minecraft</p>
+    </footer>
+{% endblock %}

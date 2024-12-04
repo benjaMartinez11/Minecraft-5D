@@ -1,0 +1,24 @@
+{% block title %}mostrar_item{% endblock %}
+
+{% block header %}
+    <h1>Items</h1>
+{% endblock %}
+
+{% block content %}
+    {% for item in tablas %}
+        <article class="item">
+            <header>
+                <div>
+                    <h2>{{ item['item'] }}</h2>
+                </div>
+            </header>
+        </article>
+        {% if not loop.last %}
+            <hr>
+        {% endif %}
+        
+    {% endfor %}
+    <footer>
+        <p>© minecraft</p>
+    </footer>
+{% endblock %}

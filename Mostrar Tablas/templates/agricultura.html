@@ -1,0 +1,24 @@
+{% block title %}mostrar_agricultura{% endblock %}
+
+{% block header %}
+    <h1>Agricultura</h1>
+{% endblock %}
+
+{% block content %}
+    {% for agricultura in tablas %}
+        <article class="agricultura">
+            <header>
+                <div>
+                    <h2>{{ agricultura['titulo'] }}</h2>
+                </div>
+            </header>
+        </article>
+        {% if not loop.last %}
+            <hr>
+        {% endif %}
+        
+    {% endfor %}
+    <footer>
+        <p>© minecraft</p>
+    </footer>
+{% endblock %}
