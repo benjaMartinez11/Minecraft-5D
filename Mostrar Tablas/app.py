@@ -46,7 +46,7 @@ def mostrar_armadura():
     for row in cur:
         tabla.append(dict(zip(armaduras, row)))
 
-    return render_template("item.html", tablas = tabla)
+    return render_template("armadura.html", tablas = tabla)
 
 
 @app.route("/mob")
