@@ -298,6 +298,20 @@ def mostrar_herramientas_basicas():
     return render_template("herramientas_basicas.html", tablas = tabla)
 
 
+@app.route("/herramientas_basicas/<int:id>")
+def detalle_herramientas_basicas(id):
+    mari = mariadb.connect(
+        user = "minecraft",
+        password ="minecraft111",
+        host ="10.9.120.5",
+        database= "minecraft"
+    )
+    cur = mari.cursor(dictionary=True)
+    cur.execute("SELECT * FROM Herramientas_basicas WHERE ID = %s", (id,))
+    herramientas_basicas = cur.fetchone()
+
+    return render_template("detalles_herramientas_basicas.html", herramientas = herramientas_basicas)
+
 
 @app.route("/jefes")
 def mostrar_jefes():

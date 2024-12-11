@@ -1,7 +1,7 @@
-{% block title %}mostrar_herramientas_basicas{% endblock %}
+{% block title %}<h1>MOSTRAR HERRAMIENTAS</h1>{% endblock %}
 
 {% block header %}
-    <h1>Herramientas_basicas</h1>
+    <h1>Herramientas basicas</h1>
 {% endblock %}
 
 {% block content %}
@@ -9,7 +9,7 @@
         <article class="herramientas_basicas">
             <header>
                 <div>
-                    <h2>{{ herramientas_basicas['titulo'] }}</h2>
+                    <h2><a href="{{url_for('detalle_herramientas_basicas', id=herramientas_basicas['ID'])}}">{{ herramientas_basicas['nombre_herramienta'] }}</a></h2>
                 </div>
             </header>
         </article>
@@ -22,3 +22,4 @@
         <p>© minecraft</p>
     </footer>
 {% endblock %}
+

@@ -1,0 +1,24 @@
+{% block title %}
+
+{% block header %}
+    <h1>Detalles de Herramientas</h1>
+{% endblock %}
+{% endblock %}
+
+{% block content %}
+    
+    <h1 class="centrado">Herramientas_basicas: {{ herramientas['nombre_herramienta'] }}</h1>
+
+    <article class="detalle_herramientas_basicas">
+        <header>
+            <ul>
+                <li><strong>De qué está hecho:</strong> {{ herramientas['de_que_esta_hecho'] }}</li>
+                <li><strong>Durabilidad:</strong> {{ herramientas['durabilidad'] }}</li>
+                <li><strong>Ataque:</strong> {{ herramientas['ataque'] }}</li>
+            </ul>
+        </header>
+    </article>
+    <footer>
+        <p>© 2024 Mi Aplicación</p>
+    </footer>
+{% endblock %}
