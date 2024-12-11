@@ -1,0 +1,28 @@
+{% block title %}
+
+{% block header %}
+    <h1>Detalles de Armaduras</h1>
+{% endblock %}
+{% endblock %}
+
+{% block content %}
+    
+    <h1 class="centrado">Armadura: {{ armadura['nombre_armadura'] }}</h1>
+
+    <article class="detalle_armadura">
+        <header>
+            <div>
+                <h2>{{ armadura['detalle_armadura'] }}</h2>
+            </div>
+            <ul>
+                <li><strong>De qué está hecho:</strong> {{ armadura['de_que_esta_hecho'] }}</li>
+                <li><strong>Durabilidad:</strong> {{ armadura['durabilidad'] }}</li>
+                <li><strong>Defensa:</strong> {{ armadura['defensa'] }}</li>
+                <li><strong>Durabilidad (Unidad):</strong> {{ armadura['durabilidad_Unidad'] }}</li>
+            </ul>
+        </header>
+    </article>
+    <footer>
+        <p>© 2024 Mi Aplicación</p>
+    </footer>
+{% endblock %}

@@ -37,16 +37,24 @@ def mostrar_armadura():
         host ="10.9.120.5",
         database= "minecraft"
     )
-    cur = mari.cursor()
+    cur = mari.cursor(dictionary=True)
     cur.execute("SELECT * FROM Armadura")
+    armaduras = cur.fetchall()
+    return render_template("armadura.html", tablas = armaduras)
 
-    armaduras = [column[0] for column in cur.description]
-    
-    tabla = []
-    for row in cur:
-        tabla.append(dict(zip(armaduras, row)))
+@app.route("/armadura/<int:id>")
+def detalle_armadura(id):
+    mari = mariadb.connect(
+        user = "minecraft",
+        password ="minecraft111",
+        host ="10.9.120.5",
+        database= "minecraft"
+    )
+    cur = mari.cursor(dictionary=True)
+    cur.execute("SELECT * FROM Armadura WHERE ID = %s", (id,))
+    armadura = cur.fetchone()
 
-    return render_template("armadura.html", tablas = tabla)
+    return render_template("detalle_armadura.html", armadura = armadura)
 
 
 @app.route("/mob")

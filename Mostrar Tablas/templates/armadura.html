@@ -9,7 +9,7 @@
         <article class="armadura">
             <header>
                 <div>
-                    <h2>{{ armadura['nombre_armadura'] }}</h2>
+                    <h2><a href="{{url_for('detalle_armadura', id=armadura['ID'])}}">{{ armadura['nombre_armadura'] }}</a> </h2>
                 </div>
             </header>
         </article>
